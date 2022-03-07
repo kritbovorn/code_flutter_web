@@ -1,3 +1,4 @@
+import 'package:beginner/screens/home_page.dart';
 import 'package:flutter/material.dart';
 
   void main() {
@@ -7,36 +8,24 @@ import 'package:flutter/material.dart';
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  static const String _title = "Flutter";
+  static const String _title = "Carousel Slider";
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: _title,
-      home: HomePage(title: "Flutter"),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-
-  final String title;
-
-  const HomePage({Key? key, required this.title}) : super(key: key);
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(  
-        title: Text(widget.title),
+      theme: ThemeData(
+        primarySwatch: Colors.green,
       ),
-      body: Container(),
+      darkTheme: ThemeData.dark(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text("Carousel Slider"),
+        ),
+        body: const HomePage()
+        ),
     );
   }
 }
+
