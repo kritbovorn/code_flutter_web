@@ -13,11 +13,11 @@ class _HomePageState extends State<HomePage> {
     var screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
+      appBar: AppBar(),
       body: Column(
         children: [
           Stack(
             children: [
-
               SizedBox(
                 width: screenSize.width,
                 height: screenSize.height * 0.45,
@@ -26,7 +26,6 @@ class _HomePageState extends State<HomePage> {
                   fit: BoxFit.cover,
                 ),
               ),
-              
             ],
           ),
         ],
