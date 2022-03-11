@@ -1,3 +1,5 @@
+import 'package:beginner/widgets/featured_heading.dart';
+import 'package:beginner/widgets/floating_quick_access_bar.dart';
 import 'package:beginner/widgets/top_bar_content.dart';
 import 'package:flutter/material.dart';
 
@@ -29,11 +31,14 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
 
-    _opacity = _scrollPosition < screenSize.height * 0.4 ? _scrollPosition / (screenSize.height * 0.4) : 1;
+    _opacity = _scrollPosition < screenSize.height * 0.4
+        ? _scrollPosition / (screenSize.height * 0.4)
+        : 1;
 
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: PreferredSize(  
+      backgroundColor: const Color.fromARGB(255, 34, 34, 34),
+      appBar: PreferredSize(
         preferredSize: Size(screenSize.width, 70),
         child: TopBarContent(opacity: _opacity),
       ),
@@ -49,8 +54,10 @@ class _HomePageState extends State<HomePage> {
                   fit: BoxFit.cover,
                 ),
               ),
+              FloatingQuickAccessBar(screenSize: screenSize),
             ],
           ),
+          const FeaturedHeading(),
         ],
       ),
     );

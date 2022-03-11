@@ -38,26 +38,44 @@ class _TopBarContentState extends State<TopBarContent> {
               Expanded(
                 flex: 3,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  // mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text('Author',
-                        style: GoogleFonts.raleway(
-                            color: textColor,
-                            fontSize: 42,
-                            fontWeight: FontWeight.w700,
-                            letterSpacing: 3)),
+                    
+                    const Expanded(child: SizedBox(),),
+
+                    Expanded(  
+                      flex: 2,
+                      child: FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: Text('Author',
+                            style: GoogleFonts.raleway(
+                                color: textColor,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w700,
+                                letterSpacing: 3)),
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),
               Expanded(
-                flex: 5,
+                flex: 7,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ...Iterable.generate(_menuItems.length)
                         .map((e) => CustomInkwell(
                               title: _menuItems[e],
-                              textStyle: GoogleFonts.roboto(color: _isHoverings[e] ? textHoverColor : textColor, fontSize: 18, fontWeight: FontWeight.bold, letterSpacing: 1),
+                              textStyle: GoogleFonts.roboto(
+                                  color: _isHoverings[e]
+                                      ? textHoverColor
+                                      : textColor,
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.bold,
+                                  letterSpacing: 1),
                               isVisible: _isHoverings[e],
                               onHover: (value) {
                                 _isHoverings[0] = false;

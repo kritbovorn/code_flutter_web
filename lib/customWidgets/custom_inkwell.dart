@@ -47,37 +47,45 @@ class _CustomInkwellState extends State<CustomInkwell> {
 
     String menu = widget.title;
 
-    return InkWell(
-      hoverColor: Colors.transparent,
-      // focusColor: Colors.transparent,
-      onHover: (value) {
-          widget.onHover(value);
-      },
-      onTap: () {
-
-        widget.onTap;
-        debugPrint(menu);
-      },
-      child: Column(
-        children: [
-          Text(
-            menu,
-            key: textKey,
-            style: widget.textStyle,
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: InkWell(
+          hoverColor: Colors.transparent,
+          // focusColor: Colors.transparent,
+          onHover: (value) {
+              widget.onHover(value);
+          },
+          onTap: () {
+        
+            widget.onTap;
+            debugPrint(menu);
+          },
+          child: Column(
+            children: [
+              FittedBox(
+                fit: BoxFit.fitWidth,
+                child: Text(
+                  menu,
+                  key: textKey,
+                  style: widget.textStyle,
+                ),
+              ),
+              const SizedBox( height: 4, ),
+              Visibility(
+                maintainAnimation: widget.isVisible,
+                maintainState: widget.isVisible,
+                maintainSize: widget.isVisible,
+                visible: widget.isVisible,
+                child: Container(
+                  color: textHoverColor,
+                  height: 2,
+                  width: widthOfText,
+                ),
+              )
+            ],
           ),
-          const SizedBox( height: 4, ),
-          Visibility(
-            maintainAnimation: widget.isVisible,
-            maintainState: widget.isVisible,
-            maintainSize: widget.isVisible,
-            visible: widget.isVisible,
-            child: Container(
-              color: textHoverColor,
-              height: 2,
-              width: widthOfText,
-            ),
-          )
-        ],
+        ),
       ),
     );
   }
