@@ -33,7 +33,7 @@ class _TopBarContentState extends State<TopBarContent> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
                 flex: 3,
@@ -43,7 +43,7 @@ class _TopBarContentState extends State<TopBarContent> {
                     Text('Author',
                         style: GoogleFonts.raleway(
                             color: textColor,
-                            fontSize: 26,
+                            fontSize: 42,
                             fontWeight: FontWeight.w700,
                             letterSpacing: 3)),
                   ],
@@ -57,6 +57,7 @@ class _TopBarContentState extends State<TopBarContent> {
                     ...Iterable.generate(_menuItems.length)
                         .map((e) => CustomInkwell(
                               title: _menuItems[e],
+                              textStyle: GoogleFonts.roboto(color: _isHoverings[e] ? textHoverColor : textColor, fontSize: 18, fontWeight: FontWeight.bold, letterSpacing: 1),
                               isVisible: _isHoverings[e],
                               onHover: (value) {
                                 _isHoverings[0] = false;

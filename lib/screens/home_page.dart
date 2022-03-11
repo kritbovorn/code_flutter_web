@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage> {
     _opacity = _scrollPosition < screenSize.height * 0.4 ? _scrollPosition / (screenSize.height * 0.4) : 1;
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: PreferredSize(  
         preferredSize: Size(screenSize.width, 70),
         child: TopBarContent(opacity: _opacity),
@@ -42,7 +43,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               SizedBox(
                 width: screenSize.width,
-                height: screenSize.height * 0.45,
+                height: screenSize.height * 0.55,
                 child: Image.asset(
                   "assets/images/cover.jpg",
                   fit: BoxFit.cover,

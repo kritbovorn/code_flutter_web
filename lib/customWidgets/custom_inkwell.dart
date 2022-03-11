@@ -3,16 +3,20 @@ import 'package:flutter/material.dart';
 
 class CustomInkwell extends StatefulWidget {
   final String title;
+  final TextStyle textStyle;
   final bool isVisible;
   final Function(bool) onHover;
   final Function() onTap;
+  
 
   const CustomInkwell({
     Key? key,
     required this.title,
+    required this.textStyle,
     required this.isVisible,
     required this.onHover,
     required this.onTap,
+    
 
   }) : super(key: key);
 
@@ -45,7 +49,7 @@ class _CustomInkwellState extends State<CustomInkwell> {
 
     return InkWell(
       hoverColor: Colors.transparent,
-      focusColor: Colors.transparent,
+      // focusColor: Colors.transparent,
       onHover: (value) {
           widget.onHover(value);
       },
@@ -59,10 +63,7 @@ class _CustomInkwellState extends State<CustomInkwell> {
           Text(
             menu,
             key: textKey,
-            style: TextStyle(
-                fontSize: 16,
-                color: widget.isVisible ? textHoverColor : textColor,
-                fontWeight: FontWeight.bold),
+            style: widget.textStyle,
           ),
           const SizedBox( height: 4, ),
           Visibility(
