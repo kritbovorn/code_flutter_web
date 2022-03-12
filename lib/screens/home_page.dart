@@ -1,4 +1,5 @@
 import 'package:beginner/widgets/featured_heading.dart';
+import 'package:beginner/widgets/featured_tile.dart';
 import 'package:beginner/widgets/floating_quick_access_bar.dart';
 import 'package:beginner/widgets/top_bar_content.dart';
 import 'package:flutter/material.dart';
@@ -42,23 +43,27 @@ class _HomePageState extends State<HomePage> {
         preferredSize: Size(screenSize.width, 70),
         child: TopBarContent(opacity: _opacity),
       ),
-      body: Column(
-        children: [
-          Stack(
-            children: [
-              SizedBox(
-                width: screenSize.width,
-                height: screenSize.height * 0.55,
-                child: Image.asset(
-                  "assets/images/cover.jpg",
-                  fit: BoxFit.cover,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                SizedBox(
+                  width: screenSize.width,
+                  height: screenSize.height * 0.55,
+                  child: Image.asset(
+                    "assets/images/cover.jpg",
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              FloatingQuickAccessBar(screenSize: screenSize),
-            ],
-          ),
-          const FeaturedHeading(),
-        ],
+                FloatingQuickAccessBar(screenSize: screenSize),
+              ],
+            ),
+            const FeaturedHeading(),
+
+            FeaturedTile(),
+          ],
+        ),
       ),
     );
   }

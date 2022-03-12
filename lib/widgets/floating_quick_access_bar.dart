@@ -1,5 +1,6 @@
 import 'package:beginner/constant/constant.dart';
 import 'package:beginner/customWidgets/custom_inkwell.dart';
+import 'package:beginner/utils/responsive_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -29,13 +30,14 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
     Icons.wb_sunny,
   ];
 
+
   List<Widget> generatedRowElements() {
     rowElements.clear();
 
     for (int i = 0; i < items.length; i++) {
       Widget elementTile = CustomInkwell(
         title: items[i],
-        textStyle: GoogleFonts.roboto(color: _isHoverings[i] ? textHoverColor : Colors.white, fontSize: 16),
+        textStyle: GoogleFonts.roboto(color: _isHoverings[i] ? textHoverColor : Colors.white, fontSize: ResponsiveWidget.isSmallScreen(context) ? 14 : 18),
         isVisible: false,
         onHover: (value) {
           setState(() {
@@ -68,35 +70,31 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(top: widget.screenSize.height * 0.5),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                const Expanded(
-                  child: SizedBox(),
-                ),
-                Expanded(
-                  flex: 4,
-                  child: Card(
-                    color: Colors.black,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 16),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: generatedRowElements(),
-                      ),
-                    ),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: [
+            const Expanded(
+              child: SizedBox(),
+            ),
+            Expanded(
+              flex: 4,
+              child: Card(
+                color: Colors.black,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: ResponsiveWidget.isLargeScreen(context) ? 14 : 12),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: generatedRowElements(),
                   ),
                 ),
-                const Expanded(
-                  child: SizedBox(),
-                ),
-              ],
+              ),
             ),
-          )
-        ],
+            const Expanded(
+              child: SizedBox(),
+            ),
+          ],
+        ),
       ),
     );
   }

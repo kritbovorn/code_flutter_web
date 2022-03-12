@@ -40,21 +40,21 @@ class _TopBarContentState extends State<TopBarContent> {
                 child: Row(
                   // mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    
-                    const Expanded(child: SizedBox(),),
-
-                    Expanded(  
+                    const Expanded(
+                      child: SizedBox(),
+                    ),
+                    Expanded(
                       flex: 2,
                       child: FittedBox(
                         fit: BoxFit.fitWidth,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8),
                           child: Text('Author',
-                            style: GoogleFonts.raleway(
-                                color: textColor,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
-                                letterSpacing: 3)),
+                              style: GoogleFonts.raleway(
+                                  color: textColor,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700,
+                                  letterSpacing: 3)),
                         ),
                       ),
                     )
