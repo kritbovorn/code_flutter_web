@@ -6,7 +6,7 @@ class CustomInkwell extends StatefulWidget {
   final TextStyle textStyle;
   final bool isVisible;
   final Function(bool) onHover;
-  final Function() onTap;
+  final Function(int) onTap;
   
 
   const CustomInkwell({
@@ -52,7 +52,7 @@ class _CustomInkwellState extends State<CustomInkwell> {
         padding: const EdgeInsets.symmetric(horizontal: 8),
         child: InkWell(
           hoverColor: Colors.transparent,
-          // focusColor: Colors.transparent,
+          splashColor: Colors.transparent,
           onHover: (value) {
               widget.onHover(value);
           },
@@ -77,10 +77,17 @@ class _CustomInkwellState extends State<CustomInkwell> {
                 maintainState: widget.isVisible,
                 maintainSize: widget.isVisible,
                 visible: widget.isVisible,
-                child: Container(
-                  color: textHoverColor,
-                  height: 2,
-                  width: widthOfText,
+                child: AnimatedOpacity(
+                  duration: const Duration(milliseconds: 300),
+                  opacity: widget.isVisible ? 1 : 0,
+                  child: Container(
+                    height: 2,
+                    width: widthOfText,
+                    decoration: const BoxDecoration(  
+                      color: textHoverColor,
+                      borderRadius: BorderRadius.all(Radius.circular(12))
+                    ),
+                  ),
                 ),
               )
             ],

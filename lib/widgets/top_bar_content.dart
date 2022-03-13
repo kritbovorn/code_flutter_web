@@ -75,7 +75,7 @@ class _TopBarContentState extends State<TopBarContent> {
                                       : textColor,
                                   fontSize: 17,
                                   fontWeight: FontWeight.bold,
-                                  letterSpacing: 1),
+                                  letterSpacing: 0),
                               isVisible: _isHoverings[e],
                               onHover: (value) {
                                 _isHoverings[0] = false;
@@ -85,7 +85,7 @@ class _TopBarContentState extends State<TopBarContent> {
                                       : _isHoverings[e] = false;
                                 });
                               },
-                              onTap: () {},
+                              onTap: (value) {},
                             )),
                   ],
                 ),

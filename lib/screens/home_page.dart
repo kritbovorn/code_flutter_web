@@ -1,6 +1,7 @@
 import 'package:beginner/widgets/featured_heading.dart';
 import 'package:beginner/widgets/featured_tile.dart';
 import 'package:beginner/widgets/floating_quick_access_bar.dart';
+import 'package:beginner/widgets/main_carousel.dart';
 import 'package:beginner/widgets/main_heading.dart';
 import 'package:beginner/widgets/top_bar_content.dart';
 import 'package:flutter/material.dart';
@@ -65,6 +66,8 @@ class _HomePageState extends State<HomePage> {
             FeaturedTile(),
 
             const MainHeading(),
+
+            const MainCarousel(),
           ],
         ),
       ),
