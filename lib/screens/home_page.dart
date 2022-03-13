@@ -21,22 +21,24 @@ class _HomePageState extends State<HomePage> {
   scrollListener() {
     setState(() {
       _scrollPosition = _scrollController.position.pixels;
+
     });
+
   }
 
   @override
   void initState() {
     super.initState();
     _scrollController.addListener(scrollListener);
+
+    
   }
 
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
 
-    _opacity = _scrollPosition < screenSize.height * 0.4
-        ? _scrollPosition / (screenSize.height * 0.4)
-        : 1;
+    _opacity = _scrollPosition < screenSize.height * 0.4 ? _scrollPosition / (screenSize.height * 0.4) : 1;
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -46,6 +48,7 @@ class _HomePageState extends State<HomePage> {
         child: TopBarContent(opacity: _opacity),
       ),
       body: SingleChildScrollView(
+        controller: _scrollController,
         child: Column(
           children: [
             Stack(

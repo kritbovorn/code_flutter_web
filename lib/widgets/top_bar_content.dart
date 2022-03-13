@@ -28,7 +28,7 @@ class _TopBarContentState extends State<TopBarContent> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white.withOpacity(widget.opacity),
+      color: Colors.black.withOpacity(widget.opacity),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -52,9 +52,9 @@ class _TopBarContentState extends State<TopBarContent> {
                           child: Text('Author',
                               style: GoogleFonts.raleway(
                                   color: textColor,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w700,
-                                  letterSpacing: 3)),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                  letterSpacing: 1)),
                         ),
                       ),
                     )
