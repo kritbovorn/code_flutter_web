@@ -85,7 +85,7 @@ class _TopBarContentState extends State<TopBarContent> {
                                       : _isHoverings[e] = false;
                                 });
                               },
-                              onTap: (value) {},
+                              onTap: (dynamic) {},
                             )),
                   ],
                 ),

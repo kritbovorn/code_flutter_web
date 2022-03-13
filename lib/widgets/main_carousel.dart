@@ -1,4 +1,5 @@
 import 'package:beginner/constant/constant.dart';
+import 'package:beginner/customWidgets/custom_inkwell.dart';
 import 'package:beginner/utils/responsive_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -55,9 +56,7 @@ class _MainCarouselState extends State<MainCarousel> {
   ];
 
   List<Widget> generateImageTiles() {
-    return images
-        .map(
-          (e) => ClipRRect(
+    return images .map( (e) => ClipRRect(
             borderRadius: BorderRadius.circular(12),
             child: Image.asset(
               e,
@@ -72,8 +71,7 @@ class _MainCarouselState extends State<MainCarousel> {
     return places
         .map((e) => Text(
               e,
-              style: GoogleFonts.roboto(
-                  color: textColor, fontSize: 24, letterSpacing: 3),
+              style: GoogleFonts.roboto( color: textColor, fontSize: 24, letterSpacing: 3),
             ))
         .toList();
   }
@@ -106,9 +104,7 @@ class _MainCarouselState extends State<MainCarousel> {
                         _current = index; //  1.2  รับค่า  _current
 
                         for (int i = 0; i < imageSliders.length; i++) {
-                          i == index
-                              ? _isSelected[i] = true
-                              : _isSelected[i] = false;
+                          i == index ? _isSelected[i] = true : _isSelected[i] = false;
                         }
                       });
                     },
@@ -121,98 +117,63 @@ class _MainCarouselState extends State<MainCarousel> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        places[
-                            _current], //  1.3  เอาค่า  _current   มาใช้ที่นี่
-                        style: GoogleFonts.electrolize(
-                            fontSize: isLarge ? 48 : 28,
-                            color: textColor,
-                            letterSpacing: 2),
+                        places[ _current], //  1.3  เอาค่า  _current   มาใช้ที่นี่
+                        style: GoogleFonts.electrolize( fontSize: isLarge ? 48 : 28, color: textColor, letterSpacing: 2),
                       )
                     ],
                   ),
                 ),
-                isLarge ? AspectRatio(
-                  aspectRatio: 16 / 7,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Row(
-                        children: [
-                          const Expanded(
-                            child: SizedBox(),
-                          ),
-                          Expanded(
-                            flex: 5,
-                            child: Card(
-                              color: Colors.black.withOpacity(0.2),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    for (int i = 0; i < places.length; i++)
-                                      Column(
-                                        children: [
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            onHover: (value) {
-                                              setState(() {
-                                                value
-                                                    ? _isHovering[i] = true
-                                                    : _isHovering[i] = false;
-                                              });
-                                            },
-                                            onTap: () {
-                                              carouselController .animateToPage(i);
-                                            },
-                                            child: Text(
-                                              places[i],
-                                              style: GoogleFonts.roboto(
-                                                  color: _isHovering[i]
-                                                      ? textHoverColor
-                                                      : textColor),
-                                            ),
-                                          ),
-
-                                          const SizedBox(height: 5,),
-
-                                          Visibility(
-                                            maintainAnimation: true,
-                                            maintainSize: true,
-                                            maintainState: true,
-                                            visible: _isSelected[i],
-                                            child: AnimatedOpacity(
-                                              duration: const Duration(
-                                                  milliseconds: 400),
-                                              opacity: _isSelected[i] ? 1 : 0,
-                                              child: Container(
-                                                height: 5,
-                                                width: 20,
-                                                decoration: BoxDecoration(
-                                                    color: textHoverColor,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            12)),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      )
-                                  ],
+                isLarge
+                    ? AspectRatio(
+                        aspectRatio: 16 / 7,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Row(
+                              children: [
+                                const Expanded(
+                                  child: SizedBox(),
                                 ),
-                              ),
+                                Expanded(
+                                  flex: 5,
+                                  child: Card(
+                                    color: Colors.black.withOpacity(0.2),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          for (int i = 0; i < places.length; i++)
+                                            CustomInkwell(
+                                                title: places[i],
+                                                textStyle: GoogleFonts.roboto( color: _isHovering[i] ? textHoverColor : textColor,
+                                                ),
+                                                isVisible: _isSelected[i],
+                                                onHover: (value) {
+                                                  setState(() {
+                                                  value ? _isHovering[i] = true : _isHovering[i] = false;
+                                                    
+                                                  });
+                                                },
+                                                onTap: (dynamic) {
+                                                  setState(() {
+                                                    dynamic = carouselController .animateToPage(i);
+                                                  });
+                                                })
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                const Expanded(
+                                  child: SizedBox(),
+                                ),
+                              ],
                             ),
-                          ),
-                          const Expanded(
-                            child: SizedBox(),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                )
-                : const SizedBox()
+                          ],
+                        ),
+                      )
+                    : const SizedBox()
               ],
             ),
           ),

@@ -44,7 +44,7 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
             value ? _isHoverings[i] = true : _isHoverings[i] = false;
           });
         },
-        onTap: (value) {},
+        onTap: (dynamic) {},
       );
 
       Widget spacer = const SizedBox(

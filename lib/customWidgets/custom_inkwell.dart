@@ -5,9 +5,8 @@ class CustomInkwell extends StatefulWidget {
   final String title;
   final TextStyle textStyle;
   final bool isVisible;
-  final Function(bool) onHover;
-  final Function(int) onTap;
-  
+  final Function(bool) onHover;     //  รอ รับค่า จาก Parent
+  final Function(dynamic) onTap;    //  รอ รับค่า จาก Parent
 
   const CustomInkwell({
     Key? key,
@@ -16,8 +15,6 @@ class CustomInkwell extends StatefulWidget {
     required this.isVisible,
     required this.onHover,
     required this.onTap,
-    
-
   }) : super(key: key);
 
   @override
@@ -27,7 +24,6 @@ class CustomInkwell extends StatefulWidget {
 class _CustomInkwellState extends State<CustomInkwell> {
   final textKey = GlobalKey();
   double widthOfText = 0.0;
-
 
   findWidthOfText(BuildContext context) {
     setState(() {
@@ -44,7 +40,6 @@ class _CustomInkwellState extends State<CustomInkwell> {
 
   @override
   Widget build(BuildContext context) {
-
     String menu = widget.title;
 
     return Expanded(
@@ -54,11 +49,10 @@ class _CustomInkwellState extends State<CustomInkwell> {
           hoverColor: Colors.transparent,
           splashColor: Colors.transparent,
           onHover: (value) {
-              widget.onHover(value);
+            widget.onHover(value);      //   ทำหน้าที่ ส่ง parameter to parent
           },
           onTap: () {
-        
-            widget.onTap;
+            widget.onTap(dynamic);      //   ทำหน้าที่ ส่ง parameter to parent
             debugPrint(menu);
           },
           child: Column(
@@ -71,7 +65,9 @@ class _CustomInkwellState extends State<CustomInkwell> {
                   style: widget.textStyle,
                 ),
               ),
-              const SizedBox( height: 4, ),
+              const SizedBox(
+                height: 4,
+              ),
               Visibility(
                 maintainAnimation: widget.isVisible,
                 maintainState: widget.isVisible,
@@ -83,10 +79,9 @@ class _CustomInkwellState extends State<CustomInkwell> {
                   child: Container(
                     height: 2,
                     width: widthOfText,
-                    decoration: const BoxDecoration(  
-                      color: textHoverColor,
-                      borderRadius: BorderRadius.all(Radius.circular(12))
-                    ),
+                    decoration: const BoxDecoration(
+                        color: textHoverColor,
+                        borderRadius: BorderRadius.all(Radius.circular(12))),
                   ),
                 ),
               )
