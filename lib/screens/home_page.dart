@@ -1,3 +1,4 @@
+import 'package:beginner/widgets/bottom_bar.dart';
 import 'package:beginner/widgets/featured_heading.dart';
 import 'package:beginner/widgets/featured_tile.dart';
 import 'package:beginner/widgets/floating_quick_access_bar.dart';
@@ -21,24 +22,22 @@ class _HomePageState extends State<HomePage> {
   scrollListener() {
     setState(() {
       _scrollPosition = _scrollController.position.pixels;
-
     });
-
   }
 
   @override
   void initState() {
     super.initState();
     _scrollController.addListener(scrollListener);
-
-    
   }
 
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
 
-    _opacity = _scrollPosition < screenSize.height * 0.4 ? _scrollPosition / (screenSize.height * 0.4) : 1;
+    _opacity = _scrollPosition < screenSize.height * 0.4
+        ? _scrollPosition / (screenSize.height * 0.4)
+        : 1;
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -65,12 +64,10 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             const FeaturedHeading(),
-
             FeaturedTile(),
-
             const MainHeading(),
-
             const MainCarousel(),
+            const BottomBar(),
           ],
         ),
       ),

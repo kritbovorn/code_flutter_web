@@ -30,14 +30,15 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
     Icons.wb_sunny,
   ];
 
-
   List<Widget> generatedRowElements() {
     rowElements.clear();
 
     for (int i = 0; i < items.length; i++) {
       Widget elementTile = CustomInkwell(
         title: items[i],
-        textStyle: GoogleFonts.roboto(color: _isHoverings[i] ? textHoverColor : Colors.white, fontSize: ResponsiveWidget.isSmallScreen(context) ? 14 : 18),
+        textStyle: GoogleFonts.roboto(
+            color: _isHoverings[i] ? textHoverColor : Colors.white,
+            fontSize: ResponsiveWidget.isSmallScreen(context) ? 14 : 18),
         isVisible: false,
         onHover: (value) {
           setState(() {
@@ -69,7 +70,7 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: widget.screenSize.height * 0.5),
+      padding: EdgeInsets.only(top: widget.screenSize.height * 0.50),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
@@ -82,7 +83,9 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
               child: Card(
                 color: Colors.black,
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: ResponsiveWidget.isLargeScreen(context) ? 14 : 12),
+                  padding: EdgeInsets.symmetric(
+                      vertical:
+                          ResponsiveWidget.isLargeScreen(context) ? 14 : 12),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: generatedRowElements(),
