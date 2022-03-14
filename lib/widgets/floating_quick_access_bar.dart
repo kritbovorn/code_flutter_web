@@ -69,9 +69,12 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
 
   @override
   Widget build(BuildContext context) {
+
+    var isLarge = ResponsiveWidget.isLargeScreen(context);
+
     return Padding(
       padding: EdgeInsets.only(top: widget.screenSize.height * 0.50),
-      child: Padding(
+      child: Container(
         padding: const EdgeInsets.all(8.0),
         child: Row(
           children: [
@@ -80,16 +83,18 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
             ),
             Expanded(
               flex: 4,
-              child: Card(
+              child:  Card(
                 color: Colors.black,
                 child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      vertical:
-                          ResponsiveWidget.isLargeScreen(context) ? 14 : 12),
-                  child: Row(
+                  padding: EdgeInsets.symmetric( vertical: ResponsiveWidget.isLargeScreen(context) ? 14 : 12),
+                  child: isLarge 
+                  ? Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: generatedRowElements(),
-                  ),
+                  )
+                  : Column(  
+                    children: generatedRowElements(),
+                  )
                 ),
               ),
             ),

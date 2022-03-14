@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
             )
           : AppBar(
               elevation: 0,
-              backgroundColor: Colors.black.withOpacity(_opacity),
+              backgroundColor: Colors.black.withOpacity(_opacity < 0 ? 0.001 : _opacity),
               title: Text('Author',
                   style: GoogleFonts.raleway(
                       color: textColor,
