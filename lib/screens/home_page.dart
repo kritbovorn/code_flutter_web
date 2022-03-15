@@ -39,6 +39,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     var isLarge = ResponsiveWidget.isLargeScreen(context);
+    var isTablet = ResponsiveWidget.isTabletScreen(context);
 
     _opacity = _scrollPosition < screenSize.height * 0.4
         ? _scrollPosition / (screenSize.height * 0.4)
@@ -47,14 +48,15 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: const Color.fromARGB(255, 34, 34, 34),
-      appBar: isLarge
+      appBar: isLarge || isTablet
           ? PreferredSize(
               preferredSize: Size(screenSize.width, 70),
               child: TopBarContent(opacity: _opacity),
             )
           : AppBar(
               elevation: 0,
-              backgroundColor: Colors.black.withOpacity(_opacity < 0 ? 0.001 : _opacity),
+              backgroundColor:
+                  Colors.black.withOpacity(_opacity < 0 ? 0.001 : _opacity),
               title: Text('Author',
                   style: GoogleFonts.raleway(
                       color: textColor,
@@ -72,7 +74,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 SizedBox(
                   width: screenSize.width,
-                  height: screenSize.height * 0.55,
+                  height: isLarge ? screenSize.height * 0.55 : isTablet ? screenSize.height * 0.45 : screenSize.height * 0.4,
                   child: Image.asset(
                     "assets/images/cover.jpg",
                     fit: BoxFit.cover,

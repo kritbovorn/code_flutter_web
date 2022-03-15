@@ -17,7 +17,7 @@ const MainHeading({ Key? key }) : super(key: key);
         children: [
           Text(
             'Knowledge Diversity',
-            style: GoogleFonts.roboto(fontSize: isLarge ? 45 : 28, color: textColor, fontWeight: FontWeight.w700, letterSpacing: 1),
+            style: GoogleFonts.roboto(fontSize: isLarge ? 45 : 30, color: textColor, fontWeight: FontWeight.w700, letterSpacing: 1),
           )
         ],
       ),

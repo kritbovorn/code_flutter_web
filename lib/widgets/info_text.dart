@@ -15,7 +15,7 @@ class InfoText extends StatelessWidget {
           '$type : ',
           style: const TextStyle(
             color: Colors.white,
-            fontSize: 16,
+            fontSize: 14,
           ),
         ),
         const SizedBox(
@@ -26,10 +26,10 @@ class InfoText extends StatelessWidget {
             title,
             style: const TextStyle(
               color: Colors.white,
-              fontSize: 16,
+              fontSize: 14,
             ),
             overflow: TextOverflow.ellipsis,
-            maxLines: 2,
+            maxLines: 3,
           ),
         )
       ],

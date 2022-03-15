@@ -1,5 +1,6 @@
 import 'package:beginner/constant/constant.dart';
 import 'package:beginner/customWidgets/custom_inkwell.dart';
+import 'package:beginner/utils/responsive_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -27,6 +28,8 @@ class _TopBarContentState extends State<TopBarContent> {
 
   @override
   Widget build(BuildContext context) {
+    var isLarge = ResponsiveWidget.isLargeScreen(context);
+
     return Container(
       color: Colors.black.withOpacity(widget.opacity),
       child: Column(
@@ -38,25 +41,18 @@ class _TopBarContentState extends State<TopBarContent> {
               Expanded(
                 flex: 3,
                 child: Row(
-                  // mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     const Expanded(
                       child: SizedBox(),
                     ),
                     Expanded(
-                      flex: 2,
-                      child: FittedBox(
-                        fit: BoxFit.fitWidth,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                          child: Text('Author',
-                              style: GoogleFonts.raleway(
-                                  color: textColor,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w400,
-                                  letterSpacing: 1)),
-                        ),
-                      ),
+                      flex: isLarge ? 1 : 2,
+                      child: Text('Author',
+                          style: GoogleFonts.raleway(
+                              color: textColor,
+                              fontSize: isLarge ? 34 : 30,
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: 1)),
                     )
                   ],
                 ),
@@ -73,7 +69,7 @@ class _TopBarContentState extends State<TopBarContent> {
                                   color: _isHoverings[e]
                                       ? textHoverColor
                                       : textColor,
-                                  fontSize: 17,
+                                  fontSize: isLarge ? 20 : 17,
                                   fontWeight: FontWeight.bold,
                                   letterSpacing: 0),
                               isVisible: _isHoverings[e],
@@ -92,9 +88,7 @@ class _TopBarContentState extends State<TopBarContent> {
               ),
               const Expanded(
                 flex: 2,
-                child: SizedBox(
-                  width: 300,
-                ),
+                child: SizedBox(),
               ),
             ],
           ),

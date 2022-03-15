@@ -56,13 +56,10 @@ class _CustomInkwellState extends State<CustomInkwell> {
         },
         child: Column(
           children: [
-            FittedBox(
-              fit: BoxFit.fitWidth,
-              child: Text(
-                menu,
-                key: textKey,
-                style: widget.textStyle,
-              ),
+            Text(
+              menu,
+              key: textKey,
+              style: widget.textStyle,
             ),
             const SizedBox(
               height: 4,

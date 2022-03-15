@@ -1,3 +1,4 @@
+import 'package:beginner/constant/constant.dart';
 import 'package:beginner/utils/responsive_widget.dart';
 import 'package:beginner/widgets/bottom_bar_column.dart';
 import 'package:beginner/widgets/info_text.dart';
@@ -9,9 +10,10 @@ class BottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var isLarge = ResponsiveWidget.isLargeScreen(context);
+    var isSmall = ResponsiveWidget.isSmallScreen(context);
 
     return Padding(
-      padding: const EdgeInsets.only(top: 85),
+      padding: const EdgeInsets.only(top: 64),
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 25),
         color: Colors.black,
@@ -24,7 +26,71 @@ class BottomBar extends StatelessWidget {
               ),
               Expanded(
                 flex: isLarge ? 10 : 18,
-                child: Column(
+                child: isSmall
+                ? Column(  
+                    children: [
+
+                      Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: const [
+                                BottomBarColumn(
+                                    heading: 'About',
+                                    s1: 'Contact Us',
+                                    s2: 'About Us',
+                                    s3: 'Careers'),
+                                BottomBarColumn(
+                                    heading: 'HELP',
+                                    s1: 'Payment',
+                                    s2: 'Cancelation',
+                                    s3: 'FAQ.'),
+                                BottomBarColumn(
+                                    heading: 'SOCIAL',
+                                    s1: 'Youtube',
+                                    s2: 'Facebool',
+                                    s3: 'Twitter'),
+                              ],
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 34),
+                        child: Divider(color: textColor,),
+                      ),
+
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 24),
+                        child: Column(
+                                children: const [
+                                  InfoText(
+                                      type: 'Email',
+                                      title: 'kritbovorn@gmail.com'),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  InfoText(
+                                      type: 'Address',
+                                      title:
+                                          '19/13 หมู่บ้านพฤกษาวิลล์ 68 ซ.จอมทอง 19 ถ.จอมทอง เขตจอมทอง กรุงเทพมหานคร 10150'),
+                                ],
+                        ),
+                      ),
+
+                      const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 34),
+                        child: Divider(color: textColor,),
+                      ),
+
+                      const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 20),
+                      child: Text(
+                        'Copyright © 2021 | Kritbovorn Taweeyossak',
+                        style: TextStyle(color: Colors.white, fontSize: 15),
+                        ),
+                      ),
+
+
+                    ],
+                  )
+                : Column(
                   children: [
                     Row(
                       children: [
@@ -88,11 +154,13 @@ class BottomBar extends StatelessWidget {
                       padding: EdgeInsets.symmetric(vertical: 34),
                       child: Text(
                         'Copyright © 2021 | Kritbovorn Taweeyossak',
-                        style: TextStyle(color: Colors.white, fontSize: 14),
+                        style: TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     )
                   ],
-                ),
+                )
+            
+                
               ),
               const Expanded(
                 child: SizedBox(),

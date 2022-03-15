@@ -26,6 +26,7 @@ class FeaturedTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
+    var isLarge = ResponsiveWidget.isLargeScreen(context);
 
     return ResponsiveWidget.isSmallScreen(context)
         ? Padding(
@@ -48,7 +49,7 @@ class FeaturedTile extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(
-                                    width: screenSize.width * 0.5,
+                                    width: screenSize.width * 0.55,
                                     height: screenSize.width * 0.35,
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(12),
@@ -89,18 +90,16 @@ class FeaturedTile extends StatelessWidget {
                   child: SizedBox(),
                 ),
                 Expanded(
-                  flex: 10,
+                  flex: isLarge ? 10 : 18,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      ...Iterable.generate(assets.take(3).length)
-                          .map((e) => Column(
-                                // mainAxisAlignment: MainAxisAlignment.start,
+                      ...Iterable.generate(assets.take(3).length) .map((e) => Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(
-                                    width: screenSize.width * 0.25,
-                                    height: screenSize.width * 0.18,
+                                    width: isLarge ? screenSize.width * 0.25 : screenSize.width * 0.28,
+                                    height: isLarge ? screenSize.width * 0.15 : screenSize.width * 0.18,
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(12),
                                       child: Image.asset(
@@ -115,7 +114,7 @@ class FeaturedTile extends StatelessWidget {
                                       titles[e],
                                       style: GoogleFonts.roboto(
                                           color: textColor,
-                                          fontSize: 22,
+                                          fontSize: 20,
                                           fontWeight: FontWeight.w400),
                                     ),
                                   ),

@@ -8,35 +8,50 @@ class FeaturedHeading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isLarge = ResponsiveWidget.isLargeScreen(context);
+    var isSmall = ResponsiveWidget.isSmallScreen(context);
+
     return Padding(
-      padding: EdgeInsets.only(top: ResponsiveWidget.isLargeScreen(context) ? 82 : 42),
-      child: Column(
+      padding: const EdgeInsets.only( top: 82),
+      child: Row(
         children: [
-          Row(
-            children: [
-              const Expanded(child: SizedBox()),
-              Expanded(
-                flex: ResponsiveWidget.isSmallScreen(context) ? 18 : 10,
-                child: Row(
-                  children: [
-                    Text(
-                      'Featured',
-                      style: GoogleFonts.roboto(
-                          fontSize: 36,
-                          fontWeight: FontWeight.bold,
-                          color: textColor),
-                    ),
-                    const Expanded(child: SizedBox()),
-                    Text(
-                      'Clue of the wooden cottage',
-                      style: GoogleFonts.roboto(color: textColor),
+          const Expanded(child: SizedBox()),
+          Expanded(
+              flex: isLarge ? 10 : 18,
+              child: isSmall
+                  ? Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Featured',
+                          style: GoogleFonts.roboto(
+                              fontSize: 36,
+                              fontWeight: FontWeight.bold,
+                              color: textColor),
+                        ),
+                        Text(
+                          'Clue of the wooden cottage',
+                          style: GoogleFonts.roboto(color: textColor),
+                        )
+                      ],
                     )
-                  ],
-                ),
-              ),
-              const Expanded(child: SizedBox()),
-            ],
-          )
+                  : Row(
+                      children: [
+                        Text(
+                          'Featured',
+                          style: GoogleFonts.roboto(
+                              fontSize: 36,
+                              fontWeight: FontWeight.bold,
+                              color: textColor),
+                        ),
+                        const Expanded(child: SizedBox()),
+                        Text(
+                          'Clue of the wooden cottage',
+                          style: GoogleFonts.roboto(color: textColor),
+                        )
+                      ],
+                    )),
+          const Expanded(child: SizedBox()),
         ],
       ),
     );
