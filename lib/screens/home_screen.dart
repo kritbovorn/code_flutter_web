@@ -1,4 +1,5 @@
 import 'package:beginner/config/palette.dart';
+import 'package:beginner/data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -34,7 +35,16 @@ class HomeScreen extends StatelessWidget {
                   iconSize: 28,
                   onPressed: () {}),
             ],
-          )
+          ),
+          SliverToBoxAdapter(
+            child: CreatePostContainer(currentUser: currentUser),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 5),
+            sliver: SliverToBoxAdapter(
+              child: Rooms(onlineUsers: onlineUsers),
+            ),
+          ),
         ],
       ),
     );
