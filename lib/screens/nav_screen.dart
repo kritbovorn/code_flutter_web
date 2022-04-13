@@ -1,3 +1,4 @@
+import 'package:beginner/data/data.dart';
 import 'package:beginner/screens/screens.dart';
 import 'package:beginner/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,9 @@ class _NavScreenState extends State<NavScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    final Size screenSize = MediaQuery.of(context).size;
+
     return Container(
       color: Colors.white,
       child: SafeArea(
@@ -41,15 +45,29 @@ class _NavScreenState extends State<NavScreen> {
           child: Container(
             color: Colors.white,
             child: Scaffold(
+              appBar: Responsive.isDesktop(context)
+              ? PreferredSize(  
+                preferredSize: Size(screenSize.width, 100),
+                child: CustomAppBar(
+                  currentUser: currentUser,
+                  icons: _icons,
+                  selectedIndex: _selectedIndex,
+                  onTap: (index) => setState(() => _selectedIndex = index),
+                ),
+              )
+
+              : null,
               body: IndexedStack(
                 index: _selectedIndex,
                 children: _screens,
               ),
-              bottomNavigationBar: CustomTabBar(
-                icons: _icons,
-                selectedIndex: _selectedIndex,
-                onTap: (index) => setState(() => _selectedIndex = index),
-              ),
+              bottomNavigationBar: !Responsive.isDesktop(context)
+                  ? CustomTabBar(
+                      icons: _icons,
+                      selectedIndex: _selectedIndex,
+                      onTap: (index) => setState(() => _selectedIndex = index),
+                    )
+                  : const SizedBox.shrink(),
             ),
           ),
         ),
