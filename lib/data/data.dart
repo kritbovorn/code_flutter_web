@@ -1,7 +1,7 @@
 import '../models/model.dart';
 
 User currentUser = User(
-  name: 'Marcus Ng',
+  name: 'Kritbovorn Ta',
   imageUrl:
       'https://images.unsplash.com/photo-1578133671540-edad0b3d689e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80',
 );
@@ -46,7 +46,7 @@ final List<User> onlineUsers = [
       name: 'Elizabeth Wong',
       imageUrl:
           'https://images.unsplash.com/photo-1515077678510-ce3bdf418862?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjF9&auto=format&fit=crop&w=675&q=80'),
- User(
+  User(
     name: 'James Lathrop',
     imageUrl:
         'https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=592&q=80',
