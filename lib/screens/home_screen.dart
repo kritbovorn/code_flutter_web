@@ -1,3 +1,4 @@
+import 'package:beginner/data/data.dart';
 import 'package:beginner/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -33,6 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final Size screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: PreferredSize(
         preferredSize: Size(screenSize.width, 50),
         child: CustomAppBar(scrollOffset: _scrollOffset),
@@ -41,10 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
         controller: _scrollController,
         slivers: [
           SliverToBoxAdapter(
-            child: Container(
-              color: Colors.blue,
-              height: 1500,
-            ),
+            child: ContentHeader(featuredContent: sintelContent),
           )
         ],
       ),
