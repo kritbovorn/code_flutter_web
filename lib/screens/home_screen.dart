@@ -53,6 +53,34 @@ class _HomeScreenState extends State<HomeScreen> {
                 contentLists: previews,
               ),
             ),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.only(top: 20.0),
+            sliver: SliverToBoxAdapter(
+              child: ContentList(
+                title: 'My List',
+                contentLists: myList,
+              ),
+            ),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.only(top: 20.0),
+            sliver: SliverToBoxAdapter(
+              child: ContentList(
+                title: 'Netflix Originals',
+                contentLists: originals,
+                isOriginals: true,
+              ),
+            ),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.only(bottom: 20.0),
+            sliver: SliverToBoxAdapter(
+              child: ContentList(
+                title: 'Trending',
+                contentLists: trending,
+              ),
+            ),
           )
         ],
       ),

@@ -62,7 +62,7 @@ class Previews extends StatelessWidget {
                         gradient: const LinearGradient(
                             colors: [
                               Colors.black87,
-                              Colors.black45,
+                              Colors.black12,
                               Colors.transparent
                             ],
                             stops: [
