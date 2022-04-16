@@ -25,66 +25,62 @@ class _CustomAppBarDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Row(
-        children: [
-          Image.asset(
-            Assets.netflixLogo1,
+    return Row(
+      children: [
+        Image.asset(
+          Assets.netflixLogo1,
+        ),
+        const SizedBox(
+          width: 12,
+        ),
+        Expanded(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              _AppBarButton(title: 'Home', onTap: () => debugPrint('Home')),
+              _AppBarButton(
+                  title: 'TV Shows', onTap: () => debugPrint('TV Shows')),
+              _AppBarButton(title: 'Movies', onTap: () => debugPrint('Movies')),
+              _AppBarButton(title: 'Latest', onTap: () => debugPrint('Latest')),
+              _AppBarButton(
+                  title: 'My List', onTap: () => debugPrint('My Lisft')),
+            ],
           ),
-          const SizedBox(
-            width: 12,
-          ),
-          Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                _AppBarButton(title: 'Home', onTap: () => debugPrint('Home')),
-                _AppBarButton(
-                    title: 'TV Shows', onTap: () => debugPrint('TV Shows')),
-                _AppBarButton(
-                    title: 'Movies', onTap: () => debugPrint('Movies')),
-                _AppBarButton(
-                    title: 'Latest', onTap: () => debugPrint('Latest')),
-                _AppBarButton(
-                    title: 'My List', onTap: () => debugPrint('My Lisft')),
-              ],
-            ),
-          ),
-          const Spacer(),
-          Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                IconButton(
-                  padding: EdgeInsets.zero,
-                  icon: const Icon(
-                    Icons.search,
-                    size: 28.0,
-                    color: Colors.white,
-                  ),
-                  onPressed: () => debugPrint('Icon Search'),
-                ),
-                _AppBarButton(title: 'Kids', onTap: () => debugPrint('Kids')),
-                _AppBarButton(title: 'DVD', onTap: () => debugPrint('DVD')),
-                IconButton(
-                  padding: EdgeInsets.zero,
-                  icon: const Icon(Icons.card_giftcard),
-                  iconSize: 28.0,
+        ),
+        const Spacer(),
+        Expanded(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              IconButton(
+                padding: EdgeInsets.zero,
+                icon: const Icon(
+                  Icons.search,
+                  size: 28.0,
                   color: Colors.white,
-                  onPressed: () => debugPrint('Gift'),
                 ),
-                IconButton(
-                  padding: EdgeInsets.zero,
-                  icon: const Icon(Icons.notifications),
-                  iconSize: 28.0,
-                  color: Colors.white,
-                  onPressed: () => debugPrint('Notifications'),
-                )
-              ],
-            ),
+                onPressed: () => debugPrint('Icon Search'),
+              ),
+              _AppBarButton(title: 'Kids', onTap: () => debugPrint('Kids')),
+              _AppBarButton(title: 'DVD', onTap: () => debugPrint('DVD')),
+              IconButton(
+                padding: EdgeInsets.zero,
+                icon: const Icon(Icons.card_giftcard),
+                iconSize: 28.0,
+                color: Colors.white,
+                onPressed: () => debugPrint('Gift'),
+              ),
+              IconButton(
+                padding: EdgeInsets.zero,
+                icon: const Icon(Icons.notifications),
+                iconSize: 28.0,
+                color: Colors.white,
+                onPressed: () => debugPrint('Notifications'),
+              )
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
