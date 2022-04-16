@@ -1,5 +1,6 @@
 import 'package:beginner/cubits/cubits.dart';
 import 'package:beginner/screens/home_screen.dart';
+import 'package:beginner/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -38,7 +39,8 @@ class _NavScreenState extends State<NavScreen> {
         create: (context) => AppBarCubit(),
         child: _screens[_currentIndex],
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: !Responsive.isDesktop(context)
+      ? BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.black,
         items: _icons
@@ -59,7 +61,8 @@ class _NavScreenState extends State<NavScreen> {
         unselectedItemColor: Colors.grey,
         unselectedFontSize: 11.0,
         onTap: (index) => setState(() => _currentIndex = index),
-      ),
+      )
+      : null,
     );
   }
 }
