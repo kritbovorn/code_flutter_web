@@ -25,7 +25,11 @@ class ContentHeader extends StatelessWidget {
           height: 500,
           decoration: const BoxDecoration(
               gradient: LinearGradient(
-            colors: [Colors.black87, Colors.black38],
+            colors: [
+              Colors.black87,
+              Colors.transparent,
+              Colors.black45,
+            ],
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
           )),
