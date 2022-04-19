@@ -1,4 +1,6 @@
 import 'package:beginner/models/activity_model.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Destination {
   String imageUrl;
@@ -14,6 +16,13 @@ class Destination {
       required this.description,
       required this.activities});
 }
+
+final List<IconData> icons = [
+    FontAwesomeIcons.plane,
+    FontAwesomeIcons.bed,
+    FontAwesomeIcons.personWalking,
+    FontAwesomeIcons.personBiking,
+];
 
 
 List<Activity> activities = [

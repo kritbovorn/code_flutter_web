@@ -1,5 +1,7 @@
+import 'package:beginner/models/destination_model.dart';
+import 'package:beginner/widgets/custom_circle_icon_button.dart';
+import 'package:beginner/widgets/destination_carousel.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -9,38 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = 0;
-
-  final List<IconData> _icons = [
-    FontAwesomeIcons.plane,
-    FontAwesomeIcons.bed,
-    FontAwesomeIcons.personWalking,
-    FontAwesomeIcons.personBiking,
-  ];
-
-  Widget _buildIconButton(int index) {
-    return GestureDetector(
-      onTap: () => setState(() => _selectedIndex = index),
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 30),
-        width: 60.0,
-        height: 60.0,
-        decoration: BoxDecoration(
-          color: _selectedIndex == index
-              ? Theme.of(context).colorScheme.secondary
-              : const Color(0xffe7ebee),
-          borderRadius: BorderRadius.circular(30.0),
-        ),
-        child: Icon(
-          _icons[index],
-          size: 24,
-          color: _selectedIndex == index
-              ? const Color.fromARGB(255, 94, 195, 17)
-              : Theme.of(context).primaryColor,
-        ),
-      ),
-    );
-  }
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -61,12 +32,18 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: _icons
+              children: icons
                   .asMap()
                   .entries
-                  .map((e) => _buildIconButton(e.key))
+                  .map((e) => CustomCircleIconButton(
+                        icon: e.value,
+                        index: e.key,
+                        selectIndex: selectedIndex,
+                        onTap: () => setState(() => selectedIndex = e.key),
+                      ))
                   .toList(),
             ),
+            const DestinationCarousel(),
           ],
         ),
       ),

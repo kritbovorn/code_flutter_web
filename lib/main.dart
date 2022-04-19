@@ -18,11 +18,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: _title,
       theme: ThemeData(
-        primaryColor: const Color(0xff3ebace),
+        primaryColor: const Color.fromARGB(255, 13, 179, 204),
         scaffoldBackgroundColor: const Color(0xfff3f5f7),
         colorScheme: ThemeData()
             .colorScheme
-            .copyWith(secondary: const Color(0xffd8ecf1)),
+            .copyWith(secondary: const Color.fromARGB(255, 102, 184, 205)),
       ),
       home: const HomeScreen(),
     );
