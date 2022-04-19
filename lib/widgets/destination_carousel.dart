@@ -26,8 +26,13 @@ class DestinationCarousel extends StatelessWidget {
             itemCount: destinations.length,
             itemBuilder: (BuildContext context, int index) {
               final Destination destination = destinations[index];
-              
-              return CardStackDestinationWidget(destination: destination);
+
+              return CardStackDestinationWidget(
+                destination: destination,
+                mainWidth: 270,
+                mediumWidth: 250,
+                smallWidth: 230,
+              );
             },
           ),
         ),
