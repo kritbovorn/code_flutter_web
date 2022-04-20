@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-  void main() {
+void main() {
   runApp(const MyApp());
 }
 
@@ -20,7 +20,6 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-
   final String title;
 
   const HomePage({Key? key, required this.title}) : super(key: key);
@@ -33,7 +32,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(  
+      appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Container(),
