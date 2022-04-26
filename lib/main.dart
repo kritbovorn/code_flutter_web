@@ -1,3 +1,4 @@
+import 'package:beginner/home/main_food_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -7,7 +8,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  static const String _title = "Flutter";
+  static const String _title = "Food Delivery";
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),
-      home: const Scaffold(),
+      home: const MainFoodPage(),
     );
   }
 }
