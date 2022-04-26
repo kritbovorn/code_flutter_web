@@ -1,3 +1,4 @@
+import 'package:beginner/home/food_page_body.dart';
 import 'package:beginner/utils/big_text.dart';
 import 'package:beginner/utils/colors.dart';
 import 'package:beginner/utils/small_text.dart';
@@ -15,7 +16,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
+        child: SizedBox(
           child: Column(
             children: [
               Padding(
@@ -62,6 +63,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                   ],
                 ),
               ),
+              const FoodPageBody(),
             ],
           ),
         ),
