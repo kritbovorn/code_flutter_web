@@ -1,6 +1,7 @@
 import 'package:beginner/mainWidget/multi_icon_shared.dart';
 import 'package:beginner/utils/big_text.dart';
 import 'package:beginner/utils/colors.dart';
+import 'package:beginner/utils/dimensions.dart';
 import 'package:beginner/utils/small_text.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   int numberOfLiked = 3;
 
   final double _scaleFraction = 0.8;
-  final double _itemHeight = 320;
+  final double _itemHeight = Dimensions.pageView;
 
   // กำหนดให้มีอัตราส่วน เท่ากับ 0.8
 
@@ -97,13 +98,13 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       child: Stack(
         children: [
           Container(
-            margin: const EdgeInsets.only(
-              left: 10,
-              right: 10,
+            margin: EdgeInsets.only(
+              left: Dimensions.width10,
+              right: Dimensions.width10,
             ),
-            height: 220,
+            height: Dimensions.pageViewContainer,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(22),
+              borderRadius: BorderRadius.circular(Dimensions.radius20),
               image: const DecorationImage(
                 image: AssetImage('assets/image/food0.png'),
                 fit: BoxFit.cover,
@@ -114,38 +115,42 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Container(
-                margin: const EdgeInsets.only(left: 20, right: 20, bottom: 15),
-                height: 120,
+                margin: EdgeInsets.only(
+                    left: Dimensions.width30,
+                    right: Dimensions.width30,
+                    bottom: Dimensions.height15),
+                height: Dimensions.pageViewTextContainer,
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(22),
+                  borderRadius: BorderRadius.circular(Dimensions.radius20),
                   boxShadow: const [
                     BoxShadow(
                       color: Colors.black12,
                       offset: Offset(0, 2),
                       blurRadius: 5,
                     ),
-                    BoxShadow(
-                      color: Colors.white,
-                      offset: Offset(-5, 0),
-                    ),
-                    BoxShadow(
-                      color: Colors.white,
-                      offset: Offset(5, 0),
-                    ),
+                    // BoxShadow(
+                    //   color: Colors.white,
+                    //   offset: Offset(-5, 0),
+                    // ),
+                    // BoxShadow(
+                    //   color: Colors.white,
+                    //   offset: Offset(5, 0),
+                    // ),
                   ],
                 ),
                 child: Container(
                   width: double.maxFinite,
-                  padding: const EdgeInsets.only(top: 10, left: 15, right: 15),
+                  padding: EdgeInsets.only(
+                      top: Dimensions.height15,
+                      left: Dimensions.height15,
+                      right: Dimensions.height15),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       BigText(
                         text: 'Chinese Side: Index: ' + index.toString(),
-                      ),
-                      const SizedBox(
-                        height: 10,
                       ),
                       Row(
                         children: [
@@ -166,9 +171,6 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                           ),
                           const SmallText(text: 'comments.')
                         ],
-                      ),
-                      const SizedBox(
-                        height: 10,
                       ),
                       const MultiIconShared(),
                     ],

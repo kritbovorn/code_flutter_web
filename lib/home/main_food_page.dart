@@ -1,6 +1,7 @@
 import 'package:beginner/home/food_page_body.dart';
 import 'package:beginner/utils/big_text.dart';
 import 'package:beginner/utils/colors.dart';
+import 'package:beginner/utils/dimensions.dart';
 import 'package:beginner/utils/small_text.dart';
 import 'package:flutter/material.dart';
 
@@ -12,55 +13,54 @@ class MainFoodPage extends StatefulWidget {
 }
 
 class _MainFoodPageState extends State<MainFoodPage> {
-
   @override
   Widget build(BuildContext context) {
-
-    var sizeHeight = MediaQuery.of(context).size.height;
-    debugPrint('Current Height is: ' + sizeHeight.toString());
     return Scaffold(
       body: SafeArea(
         child: SizedBox(
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(horizontal: Dimensions.width20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(
-                      children: [
-                        const BigText(
-                          text: 'Bangladesh',
-                          color: AppColors.mainColor,
-                        ),
-                        Row(
-                          children: [
-                            const SmallText(
-                              text: 'Narsingdi',
-                              color: Colors.black54,
-                            ),
-                            IconButton(
-                              icon: const Icon(
-                                Icons.arrow_drop_down_rounded,
-                                size: 30,
+                    Container(
+                      margin:
+                          EdgeInsets.symmetric(vertical: Dimensions.height20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const BigText(
+                            text: 'Bangladesh',
+                            color: AppColors.mainColor,
+                          ),
+                          Row(
+                            children: const [
+                              SmallText(
+                                text: 'Narsingdi',
+                                color: Colors.black54,
                               ),
-                              onPressed: () {},
-                            ),
-                          ],
-                        )
-                      ],
+                              Icon(
+                                Icons.arrow_drop_down_rounded,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                     Container(
-                      width: 45,
-                      height: 45,
+                      width: Dimensions.height45,
+                      height: Dimensions.height45,
                       decoration: BoxDecoration(
                         color: AppColors.mainColor,
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.radius15),
                       ),
-                      child: const Icon(
+                      child: Icon(
                         Icons.search,
-                        // size: 30,
+                        size: Dimensions.iconSize24,
                         color: Colors.white,
                       ),
                     ),

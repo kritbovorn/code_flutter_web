@@ -1,3 +1,4 @@
+import 'package:beginner/utils/dimensions.dart';
 import 'package:flutter/material.dart';
 
 import 'package:beginner/utils/colors.dart';
@@ -6,7 +7,7 @@ class IconTextWidget extends StatelessWidget {
   final IconData icon;
   final String text;
   final Color iconColor;
-  
+
   const IconTextWidget({
     Key? key,
     required this.icon,
@@ -21,13 +22,13 @@ class IconTextWidget extends StatelessWidget {
       icon: Icon(
         icon,
         color: iconColor,
-        size: 18,
+        size: Dimensions.height20,
       ),
       label: Text(
         text,
-        style: const TextStyle(
+        style: TextStyle(
           color: AppColors.mainColor,
-          fontSize: 10,
+          fontSize: Dimensions.height10,
         ),
       ),
     );
