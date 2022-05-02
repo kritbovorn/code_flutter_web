@@ -2,6 +2,7 @@ import 'package:beginner/mainWidget/multi_icon_shared.dart';
 import 'package:beginner/utils/big_text.dart';
 import 'package:beginner/utils/colors.dart';
 import 'package:beginner/utils/small_text.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
 class FoodPageBody extends StatefulWidget {
@@ -45,13 +46,28 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: _itemHeight,
-      child: PageView.builder(
-        controller: _pageController,
-        itemCount: 10,
-        itemBuilder: (context, index) => _buildPageItem(index),
-      ),
+    return Column(
+      children: [
+        SizedBox(
+          height: _itemHeight,
+          child: PageView.builder(
+            controller: _pageController,
+            itemCount: 7,
+            itemBuilder: (context, index) => _buildPageItem(index),
+          ),
+        ),
+        DotsIndicator(
+          dotsCount: 7,
+          position: _currentPageValue,
+          decorator: DotsDecorator(
+            size: const Size.square(9.0),
+            activeSize: const Size(24.0, 9.0),
+            activeColor: AppColors.mainColor,
+            activeShape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0)),
+          ),
+        ),
+      ],
     );
   }
 
@@ -61,15 +77,19 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     if (index == _currentPageValue.floor()) {
       var scale = 1 - ((_currentPageValue - index) * (1 - _scaleFraction));
       var position = _itemHeight * (1 - scale) / 2;
-      matrix4 = Matrix4.diagonal3Values(1, scale, 1)..setTranslationRaw(0, position, 0);
+      matrix4 = Matrix4.diagonal3Values(1, scale, 1)
+        ..setTranslationRaw(0, position, 0);
     } else if (index == _currentPageValue.floor() + 1) {
-      var scale = 0.8 + ((_currentPageValue - index + 1) * (1  - _scaleFraction));
+      var scale =
+          0.8 + ((_currentPageValue - index + 1) * (1 - _scaleFraction));
       var position = _itemHeight * (1 - scale) / 2;
-      matrix4 = Matrix4.diagonal3Values(1, scale, 1)..setTranslationRaw(0, position, 0);
+      matrix4 = Matrix4.diagonal3Values(1, scale, 1)
+        ..setTranslationRaw(0, position, 0);
     } else {
       var scale = _scaleFraction;
       var position = _itemHeight * (1 - scale) / 2;
-      matrix4 = Matrix4.diagonal3Values(1, scale, 1)..setTranslationRaw(0, position, 0);
+      matrix4 = Matrix4.diagonal3Values(1, scale, 1)
+        ..setTranslationRaw(0, position, 0);
     }
 
     return Transform(
@@ -105,7 +125,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       offset: Offset(0, 2),
                       blurRadius: 5,
                     ),
-                    BoxShadow(  
+                    BoxShadow(
                       color: Colors.white,
                       offset: Offset(-5, 0),
                     ),
