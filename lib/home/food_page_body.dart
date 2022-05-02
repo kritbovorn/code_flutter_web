@@ -12,12 +12,16 @@ class FoodPageBody extends StatefulWidget {
 }
 
 class _FoodPageBodyState extends State<FoodPageBody> {
-  final PageController _pageController = PageController(viewportFraction: 0.9);
+  final PageController _pageController = PageController(viewportFraction: 0.85);
 
+  //  สร้างตัวแปรมารับค่า _pageController.page!;
   double _currentPageValue = 0.0;
-  final double _height = 220;
+  int numberOfLiked = 3;
 
   final double _scaleFraction = 0.8;
+  final double _itemHeight = 320;
+
+  // กำหนดให้มีอัตราส่วน เท่ากับ 0.8
 
   @override
   void initState() {
@@ -27,7 +31,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       setState(() {
         _currentPageValue = _pageController.page!;
 
-        debugPrint('Current value is: ' + _currentPageValue.toString());
+        debugPrint('Current Page Value is: ' + _currentPageValue.toString());
       });
     });
   }
@@ -42,11 +46,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      // color: Colors.red,
-      height: 320,
+      height: _itemHeight,
       child: PageView.builder(
         controller: _pageController,
-        itemCount: 5,
+        itemCount: 10,
         itemBuilder: (context, index) => _buildPageItem(index),
       ),
     );
@@ -56,27 +59,17 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     Matrix4 matrix4 = Matrix4.identity();
 
     if (index == _currentPageValue.floor()) {
-      var currentScale = 1 - (_currentPageValue - index) * (1 - _scaleFraction);
-      var currentTransform = _height * (1 - currentScale) / 2;
-      matrix4 = Matrix4.diagonal3Values(1, currentScale, 1)
-        ..setTranslationRaw(0, currentTransform, 0);
+      var scale = 1 - ((_currentPageValue - index) * (1 - _scaleFraction));
+      var position = _itemHeight * (1 - scale) / 2;
+      matrix4 = Matrix4.diagonal3Values(1, scale, 1)..setTranslationRaw(0, position, 0);
     } else if (index == _currentPageValue.floor() + 1) {
-      var currentScale = _scaleFraction +
-          (_currentPageValue - index + 1) * (1 - _scaleFraction);
-      var currentTransform = _height * (1 - currentScale) / 2;
-      matrix4 = Matrix4.diagonal3Values(1, currentScale, 1);
-      matrix4 = Matrix4.diagonal3Values(1, currentScale, 1)
-        ..setTranslationRaw(0, currentTransform, 0);
-    } else if (index == _currentPageValue.floor() - 1) {
-      var currentScale = 1 - (_currentPageValue - index) * (1 - _scaleFraction);
-      var currentTransform = _height * (1 - currentScale) / 2;
-      matrix4 = Matrix4.diagonal3Values(1, currentScale, 1);
-      matrix4 = Matrix4.diagonal3Values(1, currentScale, 1)
-        ..setTranslationRaw(0, currentTransform, 0);
+      var scale = 0.8 + ((_currentPageValue - index + 1) * (1  - _scaleFraction));
+      var position = _itemHeight * (1 - scale) / 2;
+      matrix4 = Matrix4.diagonal3Values(1, scale, 1)..setTranslationRaw(0, position, 0);
     } else {
-      var currentScale = 0.8;
-      matrix4 = Matrix4.diagonal3Values(1, currentScale, 1)
-        ..setTranslationRaw(0, _height * (1 - _scaleFraction) / 2, 1);
+      var scale = _scaleFraction;
+      var position = _itemHeight * (1 - scale) / 2;
+      matrix4 = Matrix4.diagonal3Values(1, scale, 1)..setTranslationRaw(0, position, 0);
     }
 
     return Transform(
@@ -90,7 +83,6 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             ),
             height: 220,
             decoration: BoxDecoration(
-              color: index.isEven ? AppColors.paraColor : AppColors.yellowColor,
               borderRadius: BorderRadius.circular(22),
               image: const DecorationImage(
                 image: AssetImage('assets/image/food0.png'),
@@ -109,9 +101,17 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   borderRadius: BorderRadius.circular(22),
                   boxShadow: const [
                     BoxShadow(
-                      color: Colors.black26,
-                      offset: Offset(0, 4),
-                      blurRadius: 4,
+                      color: Colors.black12,
+                      offset: Offset(0, 2),
+                      blurRadius: 5,
+                    ),
+                    BoxShadow(  
+                      color: Colors.white,
+                      offset: Offset(-5, 0),
+                    ),
+                    BoxShadow(
+                      color: Colors.white,
+                      offset: Offset(5, 0),
                     ),
                   ],
                 ),
@@ -121,8 +121,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const BigText(
-                        text: 'Chinese Side',
+                      BigText(
+                        text: 'Chinese Side: Index: ' + index.toString(),
                       ),
                       const SizedBox(
                         height: 10,
@@ -130,7 +130,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       Row(
                         children: [
                           Wrap(
-                            children: List.generate(5, (index) => _iconsStar()),
+                            children:
+                                List.generate(5, (index) => _iconsStar(index)),
                           ),
                           const SizedBox(
                             width: 10,
@@ -161,11 +162,11 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     );
   }
 
-  Widget _iconsStar() {
-    return const Icon(
+  Widget _iconsStar(int index) {
+    return Icon(
       Icons.star,
       size: 15,
-      color: AppColors.mainColor,
+      color: index < numberOfLiked ? Colors.orange : AppColors.mainColor,
     );
   }
 }

@@ -1,9 +1,12 @@
-import 'package:beginner/utils/colors.dart';
-import 'package:beginner/widgets/icon_text_widget.dart';
 import 'package:flutter/material.dart';
 
+import 'package:beginner/utils/colors.dart';
+import 'package:beginner/widgets/icon_text_widget.dart';
+
 class MultiIconShared extends StatelessWidget {
-  const MultiIconShared({Key? key}) : super(key: key);
+  const MultiIconShared({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

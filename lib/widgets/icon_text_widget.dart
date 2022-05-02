@@ -1,11 +1,12 @@
-import 'package:beginner/utils/colors.dart';
 import 'package:flutter/material.dart';
+
+import 'package:beginner/utils/colors.dart';
 
 class IconTextWidget extends StatelessWidget {
   final IconData icon;
   final String text;
   final Color iconColor;
-
+  
   const IconTextWidget({
     Key? key,
     required this.icon,
