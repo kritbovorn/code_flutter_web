@@ -68,6 +68,24 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 borderRadius: BorderRadius.circular(5.0)),
           ),
         ),
+        Container(
+          margin: EdgeInsets.symmetric(
+              vertical: Dimensions.height30, horizontal: Dimensions.width20),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              const BigText(text: 'Popular'),
+              SizedBox(
+                width: Dimensions.width10,
+              ),
+              const BigText(text: '•'),
+              SizedBox(
+                width: Dimensions.width10,
+              ),
+              const SmallText(text: 'Food Pairing'),
+            ],
+          ),
+        )
       ],
     );
   }
