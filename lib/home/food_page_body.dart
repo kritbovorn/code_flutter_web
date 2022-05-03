@@ -85,7 +85,32 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               const SmallText(text: 'Food Pairing'),
             ],
           ),
-        )
+        ),
+        ListView.builder(
+          itemCount: 10,
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+              margin: EdgeInsets.only(
+                  left: Dimensions.width20, right: Dimensions.width20),
+              child: Row(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white38,
+                      borderRadius: BorderRadius.circular(Dimensions.radius20),
+                      image: const DecorationImage(
+                        image: AssetImage(
+                          'assets/image/food0.png',
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            );
+          },
+        ),
       ],
     );
   }
