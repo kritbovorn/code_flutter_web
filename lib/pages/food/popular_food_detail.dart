@@ -3,7 +3,7 @@ import 'package:beginner/widgets/app_column.dart';
 import 'package:beginner/utils/dimensions.dart';
 import 'package:beginner/widgets/app_icon.dart';
 import 'package:beginner/widgets/big_text.dart';
-import 'package:beginner/widgets/small_text.dart';
+import 'package:beginner/widgets/expandable_text_widget.dart';
 import 'package:flutter/material.dart';
 
 class PopularFoodDetail extends StatefulWidget {
@@ -72,33 +72,20 @@ class _PopularFoodDetailState extends State<PopularFoodDetail> {
                             padding: EdgeInsets.all(Dimensions.height20),
                             child: const BigText(text: 'Introduce'),
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                              top: Dimensions.height15,
-                              bottom: Dimensions.height15,
-                              left: Dimensions.height20,
-                              right: Dimensions.height20,
-                            ),
-                            child: SmallText(
-                              size: Dimensions.height18,
-                              text:
-                                  'Chicken marinated in a spiced yoghurt is placed in a large pot, then layered with fried onions (cheeky easy sub below !), fresh coriander/cilantro , then par boiled I...',
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                  left: Dimensions.height20,
+                                  right: Dimensions.height20,
+                                  bottom: Dimensions.height20),
+                              child: const SingleChildScrollView(
+                                child: ExpandableTextWidget(
+                                  title:
+                                      'Phuket has welcomed its first group of foreign travellers arriving by sea under the Test & Go entry programme.Nanthasiri Ronnasiri, director of the Phuket office of the Tourism Authority of Thailand, said the four Indonesian nationals arrived from Singapore on a private yacht called The Maggie,\n which docked at Ao Por pier.They were the first to arrive under the scheme by sea after the Centre for Covid-19 Situation Administration (CCSA) early this month eased travel restrictions to allow overseas arrivals by land and sea in addition to by air.Fully vaccinated travellers arriving by sea are required to take an RT-PCR test upon arrival and must remain aboard their vessels until the result is released. \n which docked at Ao Por pier.They were the first to arrive under the scheme by sea after the Centre for Covid-19 Situation Administration (CCSA) early this month eased travel restrictions to allow overseas arrivals by land and sea in addition to by air.\n Fully vaccinated travellers arriving by sea are required to take an RT-PCR test upon arrival and must remain aboard their vessels until the result is released.',
+                                ),
+                              ),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: Dimensions.height20),
-                            child: Row(
-                              children: [
-                                BigText(
-                                  text: 'Show more',
-                                  size: Dimensions.height18,
-                                  color: AppColors.mainColor,
-                                ),
-                                const Icon(Icons.arrow_drop_down_sharp),
-                              ],
-                            ),
-                          )
                         ],
                       ),
                     ),
@@ -163,7 +150,7 @@ class _PopularFoodDetailState extends State<PopularFoodDetail> {
                 text: '\$10 | Add to cart',
                 color: Colors.white,
               ),
-            )
+            ),
           ],
         ),
       ),
