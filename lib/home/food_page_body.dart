@@ -1,8 +1,9 @@
 import 'package:beginner/mainWidget/multi_icon_shared.dart';
-import 'package:beginner/utils/big_text.dart';
+import 'package:beginner/widgets/app_column.dart';
+import 'package:beginner/widgets/big_text.dart';
 import 'package:beginner/utils/colors.dart';
 import 'package:beginner/utils/dimensions.dart';
-import 'package:beginner/utils/small_text.dart';
+import 'package:beginner/widgets/small_text.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
@@ -234,46 +235,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   //     top: Dimensions.height15,
                   //     left: Dimensions.height15,
                   //     right: Dimensions.height15),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(Dimensions.height10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            BigText(
-                              text: 'Chinese Side: Index: ' + index.toString(),
-                            ),
-                            SizedBox(
-                              height: Dimensions.height10,
-                            ),
-                            Row(
-                              children: [
-                                Wrap(
-                                  children: List.generate(
-                                      5, (index) => _iconsStar(index)),
-                                ),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                const SmallText(text: '4.5'),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                const SmallText(text: '1287'),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                const SmallText(text: 'comments.')
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      const MultiIconShared(),
-                    ],
+                  child: AppColumn(
+                    title: 'Chinese Side',
+                    numberOfLiked: numberOfLiked,
                   ),
                 ),
               ),
@@ -281,14 +245,6 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _iconsStar(int index) {
-    return Icon(
-      Icons.star,
-      size: 15,
-      color: index < numberOfLiked ? Colors.orange : AppColors.mainColor,
     );
   }
 }
