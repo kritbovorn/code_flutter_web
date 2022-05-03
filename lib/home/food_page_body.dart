@@ -70,7 +70,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         ),
         Container(
           margin: EdgeInsets.symmetric(
-              vertical: Dimensions.height30, horizontal: Dimensions.width20),
+            vertical: Dimensions.height30,
+            horizontal: Dimensions.width20,
+          ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
@@ -87,14 +89,21 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           ),
         ),
         ListView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
           itemCount: 10,
           itemBuilder: (BuildContext context, int index) {
             return Container(
               margin: EdgeInsets.only(
-                  left: Dimensions.width20, right: Dimensions.width20),
+                  left: Dimensions.width10,
+                  right: Dimensions.width10,
+                  top: Dimensions.height10,
+                  bottom: Dimensions.height10),
               child: Row(
                 children: [
                   Container(
+                    width: Dimensions.height120,
+                    height: Dimensions.height120,
                     decoration: BoxDecoration(
                       color: Colors.white38,
                       borderRadius: BorderRadius.circular(Dimensions.radius20),
@@ -105,7 +114,45 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                         fit: BoxFit.cover,
                       ),
                     ),
-                  )
+                  ),
+                  Expanded(
+                    child: Container(
+                      height: Dimensions.height100,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(Dimensions.radius20),
+                          bottomRight: Radius.circular(Dimensions.radius20),
+                        ),
+                        color: Colors.white,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(
+                              top: Dimensions.height5,
+                              left: Dimensions.width10,
+                              right: Dimensions.width10,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const BigText(
+                                    text: 'Nutritious fruits meal in China'),
+                                SizedBox(
+                                  height: Dimensions.height5,
+                                ),
+                                const SmallText(
+                                    text: 'With chinese characteristics'),
+                              ],
+                            ),
+                          ),
+                          const MultiIconShared(),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             );
@@ -182,38 +229,48 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     // ),
                   ],
                 ),
-                child: Container(
-                  width: double.maxFinite,
-                  padding: EdgeInsets.only(
-                      top: Dimensions.height15,
-                      left: Dimensions.height15,
-                      right: Dimensions.height15),
+                child: SizedBox(
+                  // padding: EdgeInsets.only(
+                  //     top: Dimensions.height15,
+                  //     left: Dimensions.height15,
+                  //     right: Dimensions.height15),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      BigText(
-                        text: 'Chinese Side: Index: ' + index.toString(),
-                      ),
-                      Row(
-                        children: [
-                          Wrap(
-                            children:
-                                List.generate(5, (index) => _iconsStar(index)),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          const SmallText(text: '4.5'),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          const SmallText(text: '1287'),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          const SmallText(text: 'comments.')
-                        ],
+                      Padding(
+                        padding: EdgeInsets.all(Dimensions.height10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            BigText(
+                              text: 'Chinese Side: Index: ' + index.toString(),
+                            ),
+                            SizedBox(
+                              height: Dimensions.height10,
+                            ),
+                            Row(
+                              children: [
+                                Wrap(
+                                  children: List.generate(
+                                      5, (index) => _iconsStar(index)),
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                const SmallText(text: '4.5'),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                const SmallText(text: '1287'),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                const SmallText(text: 'comments.')
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                       const MultiIconShared(),
                     ],

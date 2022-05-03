@@ -16,6 +16,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(250, 250, 250, 250),
       body: SafeArea(
         child: SizedBox(
           child: Column(
@@ -67,7 +68,11 @@ class _MainFoodPageState extends State<MainFoodPage> {
                   ],
                 ),
               ),
-              const FoodPageBody(),
+              const Expanded(
+                child: SingleChildScrollView(
+                  child: FoodPageBody(),
+                ),
+              ),
             ],
           ),
         ),
