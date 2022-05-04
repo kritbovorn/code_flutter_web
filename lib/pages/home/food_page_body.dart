@@ -1,4 +1,7 @@
+import 'package:beginner/controllers/popular_product_controller.dart';
 import 'package:beginner/mainWidget/multi_icon_shared.dart';
+import 'package:beginner/models/products_model.dart';
+import 'package:beginner/utils/app_constant.dart';
 import 'package:beginner/widgets/app_column.dart';
 import 'package:beginner/widgets/big_text.dart';
 import 'package:beginner/utils/colors.dart';
@@ -6,6 +9,7 @@ import 'package:beginner/utils/dimensions.dart';
 import 'package:beginner/widgets/small_text.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({Key? key}) : super(key: key);
@@ -50,24 +54,37 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          height: _itemHeight,
-          child: PageView.builder(
-            controller: _pageController,
-            itemCount: 7,
-            itemBuilder: (context, index) => _buildPageItem(index),
-          ),
+        GetBuilder<PopularProductController>(
+          builder: (popularProducts) {
+            return SizedBox(
+              height: _itemHeight,
+              child: PageView.builder(
+                controller: _pageController,
+                itemCount: popularProducts.popularProductLists.isEmpty
+                    ? 1
+                    : popularProducts.popularProductLists.length,
+                itemBuilder: (context, index) => _buildPageItem(
+                    index, popularProducts.popularProductLists[index]),
+              ),
+            );
+          },
         ),
-        DotsIndicator(
-          dotsCount: 7,
-          position: _currentPageValue,
-          decorator: DotsDecorator(
-            size: const Size.square(9.0),
-            activeSize: const Size(24.0, 9.0),
-            activeColor: AppColors.mainColor,
-            activeShape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0)),
-          ),
+        GetBuilder<PopularProductController>(
+          builder: (popularProducts) {
+            return DotsIndicator(
+              dotsCount: popularProducts.popularProductLists.isEmpty
+                  ? 1
+                  : popularProducts.popularProductLists.length,
+              position: _currentPageValue,
+              decorator: DotsDecorator(
+                size: const Size.square(9.0),
+                activeSize: const Size(24.0, 9.0),
+                activeColor: AppColors.mainColor,
+                activeShape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0)),
+              ),
+            );
+          },
         ),
         Container(
           margin: EdgeInsets.symmetric(
@@ -163,7 +180,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     );
   }
 
-  Widget _buildPageItem(int index) {
+  Widget _buildPageItem(int index, ProductModel popularProductList) {
     Matrix4 matrix4 = Matrix4.identity();
 
     if (index == _currentPageValue.floor()) {
@@ -196,8 +213,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             height: Dimensions.pageViewContainer,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(Dimensions.radius20),
-              image: const DecorationImage(
-                image: AssetImage('assets/image/food0.png'),
+              image: DecorationImage(
+                image: NetworkImage(
+                  AppConstant.baseUri + '/uploads/' + popularProductList.img!,
+                ),
                 fit: BoxFit.cover,
               ),
             ),
@@ -236,7 +255,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   //     left: Dimensions.height15,
                   //     right: Dimensions.height15),
                   child: AppColumn(
-                    title: 'Chinese Side',
+                    title: popularProductList.name!,
                     numberOfLiked: numberOfLiked,
                   ),
                 ),
