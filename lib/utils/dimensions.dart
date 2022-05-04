@@ -2,8 +2,14 @@
 import 'package:get/get.dart';      //    ต้อง นำเข้า ' get ' package in pubspec.yaml
 
 class Dimensions {
-  static double screenHeight = Get.context!.height;     // สำคัญ    
-  static double screenWidth = Get.context!.width;     // สำคัญ   
+
+  static double deviceScreenHeight = Get.context!.height;
+  static double getDimension(double dimension) {
+    return deviceScreenHeight / (deviceScreenHeight / dimension);
+  }
+
+  static double screenHeight = Get.context!.height;  // สำคัญ   
+  static double screenWidth = Get.context!.width;     
 
   static double pageView = screenHeight / 2.64;
   static double pageViewContainer = screenHeight / 3.84;

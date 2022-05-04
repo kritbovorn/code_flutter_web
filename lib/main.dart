@@ -1,8 +1,15 @@
+import 'package:beginner/controllers/popular_product_controller.dart';
 import 'package:beginner/pages/food/recommended_food_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-void main() {
+import 'helper/dependencies.dart' as dependency;
+
+Future<void> main() async {
+
+  WidgetsFlutterBinding.ensureInitialized(); // เช็คว่า ได้ข้อมูลมา จริงหรือเปล่า
+
+  await dependency.init();
   runApp(const MyApp());
 }
 
@@ -13,6 +20,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    Get.find<PopularProductController>().getPopularProductList();
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: _title,
