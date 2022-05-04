@@ -56,17 +56,21 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       children: [
         GetBuilder<PopularProductController>(
           builder: (popularProducts) {
-            return SizedBox(
-              height: _itemHeight,
-              child: PageView.builder(
-                controller: _pageController,
-                itemCount: popularProducts.popularProductLists.isEmpty
-                    ? 1
-                    : popularProducts.popularProductLists.length,
-                itemBuilder: (context, index) => _buildPageItem(
-                    index, popularProducts.popularProductLists[index]),
-              ),
-            );
+            return popularProducts.isLoaded
+                ? SizedBox(
+                    height: _itemHeight,
+                    child: PageView.builder(
+                      controller: _pageController,
+                      itemCount: popularProducts.popularProductLists.isEmpty
+                          ? 1
+                          : popularProducts.popularProductLists.length,
+                      itemBuilder: (context, index) => _buildPageItem(
+                          index, popularProducts.popularProductLists[index]),
+                    ),
+                  )
+                : const CircularProgressIndicator(
+                    color: AppColors.mainColor,
+                  );
           },
         ),
         GetBuilder<PopularProductController>(
@@ -212,6 +216,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             ),
             height: Dimensions.pageViewContainer,
             decoration: BoxDecoration(
+              color: AppColors.mainColor,
               borderRadius: BorderRadius.circular(Dimensions.radius20),
               image: DecorationImage(
                 image: NetworkImage(
