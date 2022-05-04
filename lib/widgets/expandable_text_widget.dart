@@ -24,6 +24,7 @@ class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
   void initState() {
     super.initState();
 
+    // Logic :  
     if (widget.title.length > textHeight) {
       firstHalf = widget.title.substring(0, textHeight.toInt());
       secondHalf =

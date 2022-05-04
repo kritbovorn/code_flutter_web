@@ -1,8 +1,9 @@
-import 'package:get/get.dart';
+
+import 'package:get/get.dart';      //    ต้อง นำเข้า ' get ' package in pubspec.yaml
 
 class Dimensions {
-  static double screenHeight = Get.context!.height;
-  static double screenWidth = Get.context!.width;
+  static double screenHeight = Get.context!.height;     // สำคัญ    
+  static double screenWidth = Get.context!.width;     // สำคัญ   
 
   static double pageView = screenHeight / 2.64;
   static double pageViewContainer = screenHeight / 3.84;
@@ -15,6 +16,7 @@ class Dimensions {
   static double height16 = screenHeight / 52.75;
   static double height18 = screenHeight / 47;
   static double height20 = screenHeight / 42.2;
+  static double height26 = screenHeight / 32.46;
   static double height30 = screenHeight / 28.13;
   static double height40 = screenHeight / 21.1;
   static double height45 = screenHeight / 18.76;
@@ -24,6 +26,7 @@ class Dimensions {
   static double height110 = screenHeight / 7.67;
   static double height120 = screenHeight / 7.03;
   static double height200 = screenHeight / 4.22;
+  static double height300 = screenHeight / 2.81;
   static double height350 = screenHeight / 2.41;
 
   static double width10 = screenHeight / 84.4;

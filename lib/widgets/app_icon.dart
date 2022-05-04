@@ -1,4 +1,3 @@
-import 'package:beginner/utils/dimensions.dart';
 import 'package:flutter/material.dart';
 
 class AppIcon extends StatelessWidget {
@@ -6,6 +5,7 @@ class AppIcon extends StatelessWidget {
   final Color? backgroundColor;
   final Color? iconColor;
   final double? size;
+  final double? iconSize;
 
   const AppIcon({
     Key? key,
@@ -13,6 +13,7 @@ class AppIcon extends StatelessWidget {
     this.backgroundColor = const Color(0xfffcf4e4),
     this.iconColor = const Color(0xff756d54),
     this.size = 50,
+    this.iconSize = 16,
   }) : super(key: key);
 
   @override
@@ -29,7 +30,7 @@ class AppIcon extends StatelessWidget {
         icon: Icon(
           icon,
           color: iconColor,
-          size: Dimensions.iconSize24,
+          size: iconSize,
         ),
         onPressed: () {},
       ),

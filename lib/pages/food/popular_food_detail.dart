@@ -72,20 +72,24 @@ class _PopularFoodDetailState extends State<PopularFoodDetail> {
                             padding: EdgeInsets.all(Dimensions.height20),
                             child: const BigText(text: 'Introduce'),
                           ),
-                          Expanded(
+
+
+                          Expanded( // 1.  ต้องใช้ Expanded()
                             child: Padding(
                               padding: EdgeInsets.only(
                                   left: Dimensions.height20,
                                   right: Dimensions.height20,
                                   bottom: Dimensions.height20),
-                              child: const SingleChildScrollView(
-                                child: ExpandableTextWidget(
+                              child: const SingleChildScrollView( // 2. ต้องใช้ SingleChildScrollView()
+                                child: ExpandableTextWidget(  // 3. ExpandableTextWidget()
                                   title:
                                       'Phuket has welcomed its first group of foreign travellers arriving by sea under the Test & Go entry programme.Nanthasiri Ronnasiri, director of the Phuket office of the Tourism Authority of Thailand, said the four Indonesian nationals arrived from Singapore on a private yacht called The Maggie,\n which docked at Ao Por pier.They were the first to arrive under the scheme by sea after the Centre for Covid-19 Situation Administration (CCSA) early this month eased travel restrictions to allow overseas arrivals by land and sea in addition to by air.Fully vaccinated travellers arriving by sea are required to take an RT-PCR test upon arrival and must remain aboard their vessels until the result is released. \n which docked at Ao Por pier.They were the first to arrive under the scheme by sea after the Centre for Covid-19 Situation Administration (CCSA) early this month eased travel restrictions to allow overseas arrivals by land and sea in addition to by air.\n Fully vaccinated travellers arriving by sea are required to take an RT-PCR test upon arrival and must remain aboard their vessels until the result is released.',
                                 ),
                               ),
                             ),
                           ),
+
+
                         ],
                       ),
                     ),

@@ -1,4 +1,4 @@
-import 'package:beginner/home/food_page_body.dart';
+import 'package:beginner/pages/home/food_page_body.dart';
 import 'package:beginner/widgets/big_text.dart';
 import 'package:beginner/utils/colors.dart';
 import 'package:beginner/utils/dimensions.dart';
