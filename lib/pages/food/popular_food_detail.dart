@@ -1,4 +1,4 @@
-import 'package:beginner/pages/home/main_food_page.dart';
+import 'package:beginner/routes/route_helper.dart';
 import 'package:beginner/utils/colors.dart';
 import 'package:beginner/widgets/app_column.dart';
 import 'package:beginner/utils/dimensions.dart';
@@ -44,7 +44,7 @@ class _PopularFoodDetailState extends State<PopularFoodDetail> {
                       children: [
                         AppIcon(
                           icon: Icons.arrow_back_ios,
-                          onPressed: () => Get.to(const MainFoodPage()),
+                          onPressed: () => Get.toNamed(RouteHelper.getInitial()),
                         ),
                         AppIcon(
                           icon: Icons.shopping_cart_outlined,

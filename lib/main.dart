@@ -1,6 +1,7 @@
 import 'package:beginner/controllers/popular_product_controller.dart';
 import 'package:beginner/controllers/recommended_product_controller.dart';
 import 'package:beginner/pages/home/main_food_page.dart';
+import 'package:beginner/routes/route_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -26,12 +27,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: _title,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      initialRoute: RouteHelper.initial, // 1.  แสดงตอนแรก
+      getPages: RouteHelper.routes,
       home: const MainFoodPage(),
-      // home: const PopularFoodDetail(),
-      // home: const MainFoodPage(),
     );
   }
 }
