@@ -10,8 +10,8 @@ class PopularProductController extends GetxController {
     required this.popularProductRepository,
   });
 
-  List<dynamic> _popularProductLists = [];
-  List<dynamic> get popularProductLists => _popularProductLists;
+  List<ProductModel> _popularProductLists = [];
+  List<ProductModel> get popularProductLists => _popularProductLists;
 
   bool _isLoaded = false;
   bool get isLoaded => _isLoaded;
