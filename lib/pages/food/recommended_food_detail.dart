@@ -15,6 +15,7 @@ class RecommendedFoodDetail extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            automaticallyImplyLeading: false,
             toolbarHeight: 100, // กำหนดความสูง ให้กับ title: เวลาสไลด์
             title: Row(
               // Content  ของ AppBar
