@@ -1,9 +1,11 @@
+import 'package:beginner/routes/route_helper.dart';
 import 'package:beginner/utils/colors.dart';
 import 'package:beginner/utils/dimensions.dart';
 import 'package:beginner/widgets/app_icon.dart';
 import 'package:beginner/widgets/big_text.dart';
 import 'package:beginner/widgets/expandable_text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
   const RecommendedFoodDetail({Key? key}) : super(key: key);
@@ -23,7 +25,7 @@ class RecommendedFoodDetail extends StatelessWidget {
               children: [
                 AppIcon(
                   icon: Icons.clear,
-                  onPressed: () {},
+                  onPressed: () => Get.toNamed(RouteHelper.getInitial()),
                 ),
                 AppIcon(
                   icon: Icons.shopping_cart_outlined,

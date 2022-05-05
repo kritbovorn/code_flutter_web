@@ -67,7 +67,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                           ? 1
                           : popularProduct.popularProductLists.length,
                       itemBuilder: (context, index) => GestureDetector(
-                        onTap: () => Get.toNamed(RouteHelper.getPopularFoodDetail()),
+                        onTap: () => Get.toNamed(
+                            RouteHelper.getPopularFoodDetail(index)),
                         child: _buildPageItem(
                             index, popularProduct.popularProductLists[index]),
                       ),
@@ -125,7 +126,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                         recommendedProduct.recommendedProductLists.length,
                     itemBuilder: (BuildContext context, int index) {
                       return GestureDetector(
-                        onTap: () => Get.toNamed(RouteHelper.recommendedFoodDetail),
+                        onTap: () =>
+                            Get.toNamed(RouteHelper.recommendedFoodDetail),
                         child: Container(
                           margin: EdgeInsets.only(
                               left: Dimensions.width10,
@@ -139,8 +141,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                 height: Dimensions.height120,
                                 decoration: BoxDecoration(
                                   color: Colors.white38,
-                                  borderRadius:
-                                      BorderRadius.circular(Dimensions.radius20),
+                                  borderRadius: BorderRadius.circular(
+                                      Dimensions.radius20),
                                   image: DecorationImage(
                                     image: NetworkImage(
                                       AppConstant.baseUri +
@@ -166,7 +168,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                     color: Colors.white,
                                   ),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
                                     children: [
@@ -182,7 +185,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                           children: [
                                             BigText(
                                               text: recommendedProduct
-                                                  .recommendedProductLists[index]
+                                                  .recommendedProductLists[
+                                                      index]
                                                   .name!,
                                             ),
                                             SizedBox(
