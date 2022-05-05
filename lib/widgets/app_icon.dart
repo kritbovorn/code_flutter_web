@@ -6,6 +6,7 @@ class AppIcon extends StatelessWidget {
   final Color? iconColor;
   final double? size;
   final double? iconSize;
+  final VoidCallback onPressed; // 1. เพิ่มมาเพื่อ ให้สามารถ ส่งค่า ตอนคลิกได้
 
   const AppIcon({
     Key? key,
@@ -14,6 +15,7 @@ class AppIcon extends StatelessWidget {
     this.iconColor = const Color(0xff756d54),
     this.size = 50,
     this.iconSize = 16,
+    required this.onPressed,  // 2.
   }) : super(key: key);
 
   @override
@@ -32,7 +34,7 @@ class AppIcon extends StatelessWidget {
           color: iconColor,
           size: iconSize,
         ),
-        onPressed: () {},
+        onPressed: onPressed, // 3.
       ),
     );
   }

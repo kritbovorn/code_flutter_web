@@ -19,12 +19,14 @@ class RecommendedFoodDetail extends StatelessWidget {
             title: Row(
               // Content  ของ AppBar
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
+              children: [
                 AppIcon(
                   icon: Icons.clear,
+                  onPressed: () {},
                 ),
                 AppIcon(
                   icon: Icons.shopping_cart_outlined,
+                  onPressed: () {},
                 ),
               ],
             ),
@@ -97,6 +99,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                   iconSize: Dimensions.height26,
                   iconColor: Colors.white,
                   backgroundColor: AppColors.mainColor,
+                  onPressed: () {},
                 ),
                 BigText(
                   text: '\$12.88 ' ' X ' ' 0 ',
@@ -108,6 +111,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                   iconSize: Dimensions.height26,
                   iconColor: Colors.white,
                   backgroundColor: AppColors.mainColor,
+                  onPressed: () {},
                 ),
               ],
             ),

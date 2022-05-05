@@ -2,6 +2,7 @@ import 'package:beginner/controllers/popular_product_controller.dart';
 import 'package:beginner/controllers/recommended_product_controller.dart';
 import 'package:beginner/mainWidget/multi_icon_shared.dart';
 import 'package:beginner/models/products_model.dart';
+import 'package:beginner/pages/food/popular_food_detail.dart';
 import 'package:beginner/utils/app_constant.dart';
 import 'package:beginner/widgets/app_column.dart';
 import 'package:beginner/widgets/big_text.dart';
@@ -65,8 +66,11 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       itemCount: popularProduct.popularProductLists.isEmpty
                           ? 1
                           : popularProduct.popularProductLists.length,
-                      itemBuilder: (context, index) => _buildPageItem(
-                          index, popularProduct.popularProductLists[index]),
+                      itemBuilder: (context, index) => GestureDetector(
+                        onTap: () => Get.to(const PopularFoodDetail()),
+                        child: _buildPageItem(
+                            index, popularProduct.popularProductLists[index]),
+                      ),
                     ),
                   )
                 : const CircularProgressIndicator(
