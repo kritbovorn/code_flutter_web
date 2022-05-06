@@ -1,17 +1,26 @@
+import 'package:beginner/controllers/recommended_product_controller.dart';
+import 'package:beginner/utils/app_constant.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 import 'package:beginner/routes/route_helper.dart';
 import 'package:beginner/utils/colors.dart';
 import 'package:beginner/utils/dimensions.dart';
 import 'package:beginner/widgets/app_icon.dart';
 import 'package:beginner/widgets/big_text.dart';
 import 'package:beginner/widgets/expandable_text_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
-  const RecommendedFoodDetail({Key? key}) : super(key: key);
+  final int pageId;
+  const RecommendedFoodDetail({
+    Key? key,
+    required this.pageId,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var product = Get.find<RecommendedProductController>()
+        .recommendedProductLists[pageId];
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(
@@ -54,7 +63,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                   ),
                 ),
                 child: BigText(
-                  text: 'Chinese Side',
+                  text: product.name!,
                   size: Dimensions.height26,
                 ),
               ),
@@ -63,9 +72,9 @@ class RecommendedFoodDetail extends StatelessWidget {
             backgroundColor: AppColors.yellowColor,
             expandedHeight: Dimensions.height300,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                'assets/image/food0.png',
-                width: double.maxFinite,
+              background: Image.network(
+                AppConstant.baseUri + AppConstant.uploadUri + product.img!,
+                // width: double.maxFinite,
                 fit: BoxFit.cover,
               ),
             ),
@@ -78,9 +87,8 @@ class RecommendedFoodDetail extends StatelessWidget {
                     horizontal: Dimensions.width20,
                     vertical: Dimensions.height26,
                   ),
-                  child: const ExpandableTextWidget(
-                    title:
-                        'Phuket has welcomed its first group of foreign travellers arriving by sea under the Test & Go entry programme.Nanthasiri Ronnasiri, director of the Phuket office of the Tourism Authority of Thailand, said the four Indonesian nationals arrived from Singapore on a private yacht called The Maggie,\n which docked at Ao Por pier.They were the first to arrive under the scheme by sea after the Centre for Covid-19 Situation Administration (CCSA) early this month eased travel restrictions to allow overseas arrivals by land and sea in addition to by air.Fully vaccinated travellers arriving by sea are required to take an RT-PCR test upon arrival and must remain aboard their vessels until the result is released. \n which docked at Ao Por pier.They were the first to arrive under the scheme by sea after the Centre for Covid-19 Situation Administration (CCSA) early this month eased travel restrictions to allow overseas arrivals by land and sea in addition to by air.\n Fully vaccinated travellers arriving by sea are required to take an RT-PCR test upon arrival and must remain aboard their vessels until the result is released. Phuket has welcomed its first group of foreign travellers arriving by sea under the Test & Go entry programme.Nanthasiri Ronnasiri, director of the Phuket office of the Tourism Authority of Thailand, said the four Indonesian nationals arrived from Singapore on a private yacht called The Maggie,\n which docked at Ao Por pier.They were the first to arrive under the scheme by sea after the Centre for Covid-19 Situation Administration (CCSA) early this month eased travel restrictions to allow overseas arrivals by land and sea in addition to by air.Fully vaccinated travellers arriving by sea are required to take an RT-PCR test upon arrival and must remain aboard their vessels until the result is released. \n which docked at Ao Por pier.They were the first to arrive under the scheme by sea after the Centre for Covid-19 Situation Administration (CCSA) early this month eased travel restrictions to allow overseas arrivals by land and sea in addition to by air.\n Fully vaccinated travellers arriving by sea are required to take an RT-PCR test upon arrival and must remain aboard their vessels until the result is released. Phuket has welcomed its first group of foreign travellers arriving by sea under the Test & Go entry programme.Nanthasiri Ronnasiri, director of the Phuket office of the Tourism Authority of Thailand, said the four Indonesian nationals arrived from Singapore on a private yacht called The Maggie,\n which docked at Ao Por pier.They were the first to arrive under the scheme by sea after the Centre for Covid-19 Situation Administration (CCSA) early this month eased travel restrictions to allow overseas arrivals by land and sea in addition to by air.Fully vaccinated travellers arriving by sea are required to take an RT-PCR test upon arrival and must remain aboard their vessels until the result is released. \n which docked at Ao Por pier.They were the first to arrive under the scheme by sea after the Centre for Covid-19 Situation Administration (CCSA) early this month eased travel restrictions to allow overseas arrivals by land and sea in addition to by air.\n Fully vaccinated travellers arriving by sea are required to take an RT-PCR test upon arrival and must remain aboard their vessels until the result is released. Phuket has welcomed its first group of foreign travellers arriving by sea under the Test & Go entry programme.Nanthasiri Ronnasiri, director of the Phuket office of the Tourism Authority of Thailand, said the four Indonesian nationals arrived from Singapore on a private yacht called The Maggie,\n which docked at Ao Por pier.They were the first to arrive under the scheme by sea after the Centre for Covid-19 Situation Administration (CCSA) early this month eased travel restrictions to allow overseas arrivals by land and sea in addition to by air.Fully vaccinated travellers arriving by sea are required to take an RT-PCR test upon arrival and must remain aboard their vessels until the result is released. \n which docked at Ao Por pier.They were the first to arrive under the scheme by sea after the Centre for Covid-19 Situation Administration (CCSA) early this month eased travel restrictions to allow overseas arrivals by land and sea in addition to by air.\n Fully vaccinated travellers arriving by sea are required to take an RT-PCR test upon arrival and must remain aboard their vessels until the result is released.',
+                  child: ExpandableTextWidget(
+                    title: product.description!,
                   ),
                 ),
               ],
@@ -105,7 +113,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                   onPressed: () {},
                 ),
                 BigText(
-                  text: '\$12.88 ' ' X ' ' 0 ',
+                  text: '\$ ${product.price}  X  0 ',
                   color: AppColors.mainBlackColor,
                   size: Dimensions.height26,
                 ),
