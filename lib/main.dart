@@ -1,3 +1,5 @@
+import 'package:beginner/constants.dart';
+import 'package:beginner/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -7,17 +9,18 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  static const String _title = "Flutter";
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: _title,
+      title: 'Plant App',
       theme: ThemeData(
-        primarySwatch: Colors.amber,
+        scaffoldBackgroundColor: kBackgroundColor,
+        textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
+        colorScheme: ColorScheme.fromSeed(seedColor: kPrimaryColor),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const Scaffold(),
+      home: const HomeScreen(),
     );
   }
 }
