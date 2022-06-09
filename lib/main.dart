@@ -1,3 +1,5 @@
+import 'package:beginner/constants.dart';
+import 'package:beginner/screen/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,9 +17,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: _title,
       theme: ThemeData(
-        primarySwatch: Colors.amber,
+        textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const Scaffold(),
+      home: const HomeScreen(),
     );
   }
 }
