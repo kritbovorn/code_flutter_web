@@ -17,7 +17,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),
-      home: const Scaffold(),
+      home: Scaffold(
+        appBar: AppBar(title: const Text("Flutter")),
+        body: Container(),
+      ),
     );
   }
 }
