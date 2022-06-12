@@ -1,4 +1,7 @@
+import 'package:beginner/constants.dart';
+import 'package:beginner/screen/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,12 +18,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: _title,
       theme: ThemeData(
-        primarySwatch: Colors.amber,
-      ),
-      home: Scaffold(
-        appBar: AppBar(title: const Text("Flutter")),
-        body: Container(),
-      ),
+        textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
+          primarySwatch: Colors.amber,
+          appBarTheme: const AppBarTheme(
+            systemOverlayStyle: SystemUiOverlayStyle.light,
+          )),
+      home: const HomeScreen(),
     );
   }
 }
