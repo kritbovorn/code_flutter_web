@@ -1,6 +1,7 @@
-import 'package:beginner/components/appBar/app_bar_action_icons_component.dart';
+import 'package:beginner/widgets/body.dart';
 import 'package:flutter/material.dart';
 
+import 'package:beginner/components/appBar/app_bar_action_icons_component.dart';
 import 'package:beginner/models/product.dart';
 
 class DetailScreen extends StatelessWidget {
@@ -12,23 +13,22 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    List<Color> colorSets = [
+      const Color(0xff356c95),
+      const Color.fromARGB(255, 213, 223, 33),
+      const Color.fromARGB(255, 242, 79, 9)
+    ];
+    double screenHeight = MediaQuery.of(context).size.height -
+        MediaQuery.of(context).padding.top -
+        kToolbarHeight;
     return Scaffold(
       backgroundColor: product.color,
       appBar: AppBarActionIconsComponent(
         iconThemeDataColor: Colors.white,
         backgroundColor: product.color,
       ),
-      body: SingleChildScrollView(  
-        child: SizedBox(  
-          height: size.height,
-          child: Stack(  
-            children: [
-              
-            ],
-          ),
-        ),
-      ),
+      body: Body(screenHeight: screenHeight, colorSets: colorSets, product: product),
     );
   }
 }
+
