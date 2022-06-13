@@ -3,7 +3,6 @@ import 'package:beginner/constants.dart';
 import 'package:beginner/models/product.dart';
 import 'package:flutter/material.dart';
 
-
 class PriceAndProductImage extends StatelessWidget {
   const PriceAndProductImage({
     Key? key,
@@ -24,21 +23,16 @@ class PriceAndProductImage extends StatelessWidget {
                 TitleSectionComponent(
                   title: 'Price',
                   padding: 0,
-                  textStyle:
-                      Theme.of(context).textTheme.headline6!.copyWith(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
+                  textStyle: Theme.of(context).textTheme.headline6!.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                 ),
                 TitleSectionComponent(
                   title: '\$${product.price}',
                   padding: 0,
-                  textStyle: Theme.of(context)
-                      .textTheme
-                      .headline4!
-                      .copyWith(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
+                  textStyle: Theme.of(context).textTheme.headline4!.copyWith(
+                      color: Colors.white, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -46,11 +40,13 @@ class PriceAndProductImage extends StatelessWidget {
           Expanded(
             flex: 2,
             child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-              child: Image.asset(
-                product.image,
-                fit: BoxFit.fitWidth,
+              padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+              child: Hero(
+                tag: '${product.id}',
+                child: Image.asset(
+                  product.image,
+                  fit: BoxFit.fitWidth,
+                ),
               ),
             ),
           ),
@@ -59,4 +55,3 @@ class PriceAndProductImage extends StatelessWidget {
     );
   }
 }
-

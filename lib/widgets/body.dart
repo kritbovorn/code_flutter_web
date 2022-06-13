@@ -3,7 +3,6 @@ import 'package:beginner/widgets/detail_description.dart';
 import 'package:beginner/widgets/product_title_with_image.dart';
 import 'package:flutter/material.dart';
 
-
 class Body extends StatelessWidget {
   const Body({
     Key? key,

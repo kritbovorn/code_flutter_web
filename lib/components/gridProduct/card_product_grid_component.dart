@@ -1,7 +1,6 @@
 import 'package:beginner/models/product.dart';
 import 'package:flutter/material.dart';
 
-
 class CardProductGridComponent extends StatelessWidget {
   final Product product;
   final Color? titleColor;
@@ -24,16 +23,19 @@ class CardProductGridComponent extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
-              padding:  EdgeInsets.all(padding!),
+              padding: EdgeInsets.all(padding!),
               decoration: BoxDecoration(
                 color: product.color,
                 borderRadius: BorderRadius.circular(padding! / 2),
               ),
-              child: Image.asset(product.image),
+              child: Hero(
+                tag: '${product.id}',
+                child: Image.asset(product.image),
+              ),
             ),
           ),
           Container(
-            padding:  EdgeInsets.symmetric(horizontal: padding! / 2),
+            padding: EdgeInsets.symmetric(horizontal: padding! / 2),
             height: 50,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

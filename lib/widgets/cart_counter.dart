@@ -1,3 +1,4 @@
+import 'package:beginner/constants.dart';
 import 'package:flutter/material.dart';
 
 class CartCounter extends StatefulWidget {
@@ -14,23 +15,24 @@ class _CartCounterState extends State<CartCounter> {
     return Row(
       children: [
         OutlinedButton(
-          child: const Icon(Icons.add),
-          style: OutlinedButton.styleFrom(
-            minimumSize: const Size(0, 0),
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          child: const Icon(Icons.remove),
+          onPressed: () {
+            if (numOfItems > 0) {
+              setState(() => numOfItems--);
+            }
+          },
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
+          child: Text(
+            numOfItems.toString().padLeft(2, "0"),
+            style: Theme.of(context).textTheme.headline6,
           ),
-          onPressed: () {},
         ),
         OutlinedButton(
-          child: const Text('Click Me'),
-          onPressed: () {},
+          child: const Icon(Icons.add),
+          onPressed: () => setState(() => numOfItems++),
         ),
-        OutlinedButton.icon(
-          icon: const Icon(Icons.shopping_cart),
-          label: const Text('My Cart'),
-          onPressed: () {},
-        ),
-        
       ],
     );
   }

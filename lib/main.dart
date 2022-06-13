@@ -27,16 +27,11 @@ class MyApp extends StatelessWidget {
         outlinedButtonTheme: OutlinedButtonThemeData(
           style: OutlinedButton.styleFrom(
             minimumSize: const Size(0, 0),
-            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-            primary: Colors.white,
-            backgroundColor: const Color.fromARGB(255, 47, 150, 0),
-            shadowColor: Colors.orange,
-            elevation: 5,
-            side: const BorderSide(
-                color: Color.fromARGB(255, 110, 84, 147), width: 4),
-            shape: BeveledRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
+            padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
+            side: const BorderSide(width: 1, color: kTextLightColor),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            primary: kTextColor,
           ),
         ),
       ),
