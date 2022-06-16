@@ -1,4 +1,7 @@
+// https://www.youtube.com/watch?app=desktop&v=svQOxQde0bg
+
 import 'package:beginner/screens/home_screen.dart';
+import 'package:beginner/theme/google_theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +18,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: _title,
-      theme: ThemeData(),
+      theme: GoogleTheme.lightTheme,
+      darkTheme: GoogleTheme.darkTheme,
+      // theme: ThemeData(
+      //   textTheme: Theme.of(context).textTheme.apply(
+      //         bodyColor: AppColor.defautPrimaryColor,
+      //         displayColor: AppColor.defautPrimaryColor,
+      //       ),
+      // ),
+
+      color: Colors.red,
+
       home: const HomeScreen(),
     );
   }

@@ -5,6 +5,21 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      body: Container(
+        margin: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+        child: Column(
+          children: [
+            Text(
+              'Kritbovorn',
+              style: Theme.of(context)
+                  .textTheme
+                  .headline5!
+                  .copyWith(fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
