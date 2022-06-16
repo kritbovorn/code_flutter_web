@@ -20,15 +20,6 @@ class MyApp extends StatelessWidget {
       title: _title,
       theme: GoogleTheme.lightTheme,
       darkTheme: GoogleTheme.darkTheme,
-      // theme: ThemeData(
-      //   textTheme: Theme.of(context).textTheme.apply(
-      //         bodyColor: AppColor.defautPrimaryColor,
-      //         displayColor: AppColor.defautPrimaryColor,
-      //       ),
-      // ),
-
-      color: Colors.red,
-
       home: const HomeScreen(),
     );
   }

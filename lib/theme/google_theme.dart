@@ -12,7 +12,7 @@ class GoogleTheme {
     headline3: GoogleFonts.roboto(fontSize: 48, fontWeight: FontWeight.w400),
     headline4: GoogleFonts.roboto(
         fontSize: 34,
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.w700,
         letterSpacing: 0.25,
         color: AppColor.defautPrimaryColor),
     headline5: GoogleFonts.roboto(
@@ -46,7 +46,7 @@ class GoogleTheme {
     headline3: GoogleFonts.roboto(fontSize: 48, fontWeight: FontWeight.w400),
     headline4: GoogleFonts.roboto(
       fontSize: 34,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.w700,
       letterSpacing: 0.25,
     ),
     headline5: GoogleFonts.roboto(
@@ -73,11 +73,13 @@ class GoogleTheme {
   );
 
   static ThemeData get lightTheme => ThemeData(
-        // scaffoldBackgroundColor: AppColor.defautPrimaryColor,
         scaffoldBackgroundColor: AppColor.mainLightBackgrounColor,
         textTheme: lightTextTheme,
         appBarTheme: const AppBarTheme(
-          systemOverlayStyle: SystemUiOverlayStyle.light,
+          systemOverlayStyle: SystemUiOverlayStyle.dark,
+        ),
+        iconTheme: IconThemeData(
+          color: AppColor.defaultBackgroundColor,
         ),
       );
 
@@ -85,7 +87,10 @@ class GoogleTheme {
         scaffoldBackgroundColor: AppColor.defaultBackgroundColor,
         textTheme: darkTextTheme,
         appBarTheme: const AppBarTheme(
-          systemOverlayStyle: SystemUiOverlayStyle.dark,
+          systemOverlayStyle: SystemUiOverlayStyle.light,
+        ),
+        iconTheme: IconThemeData(
+          color: AppColor.defautPrimaryColor,
         ),
       );
 }
