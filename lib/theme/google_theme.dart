@@ -81,6 +81,15 @@ class GoogleTheme {
         iconTheme: IconThemeData(
           color: AppColor.defaultBackgroundColor,
         ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            textStyle: TextStyle(
+              fontSize: 16,
+              color: AppColor.colorButton,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
       );
 
   static ThemeData get darkTheme => ThemeData(
@@ -91,6 +100,15 @@ class GoogleTheme {
         ),
         iconTheme: IconThemeData(
           color: AppColor.defautPrimaryColor,
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            textStyle: TextStyle(
+              fontSize: 16,
+              color: AppColor.colorButton,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ),
       );
 }

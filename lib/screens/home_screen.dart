@@ -53,13 +53,13 @@ class HomeScreen extends StatelessWidget {
                       Text('Details'),
                       Icon(
                         Icons.arrow_forward,
-                      )
+                      ),
                     ],
                   ),
                   onPressed: () {},
-                )
+                ),
               ],
-            )
+            ),
           ],
         ),
       ),

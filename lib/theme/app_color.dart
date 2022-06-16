@@ -11,4 +11,7 @@ class AppColor {
   // Gradient
   static Color firstGradientEnd = const Color(0xFFFF1B6B);
   static Color firstGradientBegin = const Color(0xFF45CAFF);
+
+  // Colors Button
+  static Color colorButton = const Color(0xFF3505BE);
 }
