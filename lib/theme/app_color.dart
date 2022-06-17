@@ -9,8 +9,8 @@ class AppColor {
   static Color defaultErrorBackgroundColor = const Color(0xFF140D0D);
 
   // Gradient
-  static Color firstGradientEnd = const Color(0xFFFF1B6B);
-  static Color firstGradientBegin = const Color(0xFF45CAFF);
+  static Color firstGradientEnd = const Color.fromARGB(255, 226, 33, 101);
+  static Color firstGradientBegin = const Color.fromARGB(255, 41, 61, 242);
 
   // Colors Button
   static Color colorButton = const Color(0xFF3505BE);
