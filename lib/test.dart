@@ -5,20 +5,24 @@ class Test extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return
-   TextButton(
-      child: const Icon(
-        Icons.play_circle,
-        size: 55,
-        color: Colors.white,
-      ),
-      style: TextButton.styleFrom(
-        padding: const EdgeInsets.all(0),
-        shape: CircleBorder(
-          side: BorderSide(width: 8, color: Colors.blue.withOpacity(0.3)),
-        ),
-      ),
-      onPressed: () {},
+    return Column(
+      children: [
+        Text('Somethings',
+            style: Theme.of(context)
+                .textTheme
+                .headline3!
+                .copyWith(color: Theme.of(context).colorScheme.primary)),
+        Text('Somethings',
+            style: Theme.of(context)
+                .textTheme
+                .headline5!
+                .copyWith(color: Theme.of(context).colorScheme.error)),
+        Text('Somethings',
+            style: Theme.of(context)
+                .textTheme
+                .headline6!
+                .copyWith(color: Theme.of(context).colorScheme.onSurface)),
+      ],
     );
   }
 }

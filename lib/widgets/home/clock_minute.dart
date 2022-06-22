@@ -1,4 +1,3 @@
-import 'package:beginner/theme/app_color.dart';
 import 'package:beginner/theme/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -12,18 +11,16 @@ class ClockMinute extends StatelessWidget {
         Padding(
           padding:
               EdgeInsets.symmetric(horizontal: Constants.defaultPadding / 2),
-          child: Icon(
+          child: const Icon(
             Icons.timer,
-            color: AppColor.defautPrimaryColor,
+            color: Colors.white,
           ),
         ),
-        Text(
-          '60 min',
-          style: Theme.of(context)
-              .textTheme
-              .bodyText1!
-              .copyWith(color: AppColor.defautPrimaryColor),
-        ),
+        Text('60 min',
+            style: Theme.of(context)
+                .textTheme
+                .bodyText1!
+                .copyWith(color: Colors.white)),
       ],
     );
   }

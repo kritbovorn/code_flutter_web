@@ -1,4 +1,3 @@
-import 'package:beginner/theme/app_color.dart';
 import 'package:flutter/material.dart';
 
 class HeaderCardSectionHome extends StatelessWidget {
@@ -15,21 +14,21 @@ class HeaderCardSectionHome extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .subtitle1!
-              .copyWith(color: AppColor.defautPrimaryColor),
+              .copyWith(color: Theme.of(context).colorScheme.surface),
         ),
         Text(
           'Legs Toning',
           style: Theme.of(context)
               .textTheme
               .headline5!
-              .copyWith(color: AppColor.defautPrimaryColor),
+              .copyWith(color: Theme.of(context).colorScheme.surface),
         ),
         Text(
           'and Glutes Workout',
           style: Theme.of(context)
               .textTheme
               .headline5!
-              .copyWith(color: AppColor.defautPrimaryColor),
+              .copyWith(color: Theme.of(context).colorScheme.surface),
         ),
       ],
     );

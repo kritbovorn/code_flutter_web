@@ -12,13 +12,13 @@ class CardHomeSection extends StatelessWidget {
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.symmetric(vertical: Constants.defaultPadding),
+      margin: EdgeInsets.symmetric(vertical: Constants.defaultPadding / 2),
       padding: EdgeInsets.all(Constants.defaultPadding),
       width: screenSize.width,
-      height: 200,
+      height: 180,
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.only(
-          topRight: Radius.circular(80),
+          topRight: Radius.circular(70),
           topLeft: Radius.circular(12),
           bottomLeft: Radius.circular(12),
           bottomRight: Radius.circular(12),
@@ -33,11 +33,17 @@ class CardHomeSection extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: AppColor.firstGradientBegin.withOpacity(0.2),
+            color: AppColor.defautPrimaryColor.withOpacity(0.1),
             offset: const Offset(0, 4),
-            blurRadius: 8,
+            blurRadius: 4,
             spreadRadius: 1,
-          )
+          ),
+          BoxShadow(
+            color: AppColor.defautPrimaryColor.withOpacity(0.1),
+            offset: const Offset(0, -4),
+            blurRadius: 4,
+            spreadRadius: 1,
+          ),
         ],
       ),
       child: Column(

@@ -20,9 +20,9 @@ class GoogleTheme {
     headline6: GoogleFonts.roboto(
         fontSize: 20, fontWeight: FontWeight.w500, letterSpacing: 0.15),
     subtitle1: GoogleFonts.roboto(
-        fontSize: 16, fontWeight: FontWeight.w400, letterSpacing: 0.15),
+        fontSize: 18, fontWeight: FontWeight.w500, letterSpacing: 0.15),
     subtitle2: GoogleFonts.roboto(
-        fontSize: 14, fontWeight: FontWeight.w500, letterSpacing: 0.1),
+        fontSize: 16, fontWeight: FontWeight.w500, letterSpacing: 0.1),
     bodyText1: GoogleFonts.roboto(
         fontSize: 16, fontWeight: FontWeight.w400, letterSpacing: 0.5),
     bodyText2: GoogleFonts.roboto(
@@ -54,9 +54,9 @@ class GoogleTheme {
     headline6: GoogleFonts.roboto(
         fontSize: 20, fontWeight: FontWeight.w500, letterSpacing: 0.15),
     subtitle1: GoogleFonts.roboto(
-        fontSize: 16, fontWeight: FontWeight.w400, letterSpacing: 0.15),
+        fontSize: 18, fontWeight: FontWeight.w500, letterSpacing: 0.15),
     subtitle2: GoogleFonts.roboto(
-        fontSize: 14, fontWeight: FontWeight.w500, letterSpacing: 0.1),
+        fontSize: 16, fontWeight: FontWeight.w500, letterSpacing: 0.1),
     bodyText1: GoogleFonts.roboto(
         fontSize: 16, fontWeight: FontWeight.w400, letterSpacing: 0.5),
     bodyText2: GoogleFonts.roboto(
@@ -75,6 +75,19 @@ class GoogleTheme {
   static ThemeData get lightTheme => ThemeData(
         scaffoldBackgroundColor: AppColor.mainLightBackgrounColor,
         textTheme: lightTextTheme,
+        colorScheme: ColorScheme(
+          brightness: Brightness.light,
+          primary: Colors.blue,
+          onPrimary: Colors.green,
+          secondary: AppColor.defaultBackgroundColor,
+          onSecondary: Colors.black38,
+          background: Colors.blue,
+          onBackground: Colors.white70,
+          onError: Colors.red.shade400,
+          error: Colors.red.shade700,
+          surface: Colors.white,
+          onSurface: Colors.orange.shade600,
+        ),
         appBarTheme: const AppBarTheme(
           systemOverlayStyle: SystemUiOverlayStyle.dark,
         ),
@@ -95,6 +108,19 @@ class GoogleTheme {
   static ThemeData get darkTheme => ThemeData(
         scaffoldBackgroundColor: AppColor.defaultBackgroundColor,
         textTheme: darkTextTheme,
+        colorScheme: ColorScheme(
+          brightness: Brightness.light,
+          primary: Colors.blue,
+          onPrimary: Colors.green,
+          secondary: AppColor.defaultBackgroundColor,
+          onSecondary: Colors.black38,
+          background: Colors.blue,
+          onBackground: Colors.white70,
+          onError: Colors.red.shade400,
+          error: Colors.red.shade700,
+          surface: Colors.white,
+          onSurface: Colors.orange.shade600,
+        ),
         appBarTheme: const AppBarTheme(
           systemOverlayStyle: SystemUiOverlayStyle.light,
         ),
