@@ -1,4 +1,6 @@
+import 'package:beginner/screens/video_info.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class YourProgramDetailsButton extends StatelessWidget {
   const YourProgramDetailsButton({Key? key}) : super(key: key);
@@ -21,7 +23,9 @@ class YourProgramDetailsButton extends StatelessWidget {
               ),
             ],
           ),
-          onPressed: () {},
+          onPressed: () {
+            Get.to(() => const VideoInfo());
+          },
         ),
       ],
     );

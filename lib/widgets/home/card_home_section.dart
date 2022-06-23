@@ -59,7 +59,7 @@ class CardHomeSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                const ClockMinute(),
+                const ClockMinute(iconData: Icons.timer, title: '60 min'),
                 TextButtonBorderCircle(
                   iconData: Icons.play_circle,
                   onPressed: () {},

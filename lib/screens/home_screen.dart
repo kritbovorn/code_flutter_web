@@ -66,7 +66,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         Image.asset('assets/ex${index + 1}.png'),
                         Text(
                           'Somethings',
-                          style: Theme.of(context).textTheme.headline6,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline6!
+                              .copyWith(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSecondary),
                         ),
                       ],
                     ),
