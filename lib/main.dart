@@ -1,6 +1,6 @@
 // https://www.youtube.com/watch?app=desktop&v=svQOxQde0bg
 
-import 'package:beginner/screens/home_screen.dart';
+import 'package:beginner/screens/video_info.dart';
 import 'package:beginner/theme/google_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: _title,
       theme: GoogleTheme.lightTheme,
       darkTheme: GoogleTheme.darkTheme,
-      home: const HomeScreen(),
+      home: const VideoInfo(),
     );
   }
 }
